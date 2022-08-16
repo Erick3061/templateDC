@@ -1,0 +1,87 @@
+// Base
+@import './base/settings';
+@import './base/variables';
+@import './base/helpers';
+
+// Componentes
+// @import './components/nameCompnent';
+@import './components/switch';
+
+// pages
+// @import './pages/namePage';
+@import './pages/logIn';
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-full {
+    background-color: lighten($color: $Therniary, $amount: 4);
+    height: 100vh;
+    width: 100vw;
+
+    .container-input {
+        margin: 1rem 0rem;
+
+        input {
+            font-size: 1rem;
+            border: 1px solid $Therniary-Dark;
+            width: 100%;
+            height: 2.5rem;
+            padding: 0px 1rem;
+            outline: none;
+            transition: box-shadow 150ms ease 0s, border-color 150ms ease 0s !important;
+
+            &:focus,
+            :active {
+                outline: 1px solid $Btn-Primary;
+                border: 1px solid $Btn-Primary;
+                box-shadow: $Btn-Primary-boxShadow 0rem 0rem 0rem 0.125rem;
+            }
+        }
+
+        .error {
+            color: $Error;
+            margin: 0px 1rem;
+            font-size: .9rem;
+        }
+
+    }
+
+    .container-btn {
+        position: relative;
+        margin: 1rem 0rem;
+
+        .btn {
+            width: 100%;
+            border: 0px;
+            font-size: .95rem;
+            padding: 1rem 0;
+            color: $Therniary-Light;
+            text-transform: uppercase;
+            font-weight: bold;
+            background-image: linear-gradient(310deg, $Btn-Secondary, $Btn-Primary);
+            transition: transform .2s ease-in-out;
+            cursor: pointer;
+            box-shadow: 0px 2px .5rem .1rem rgba($color: $Therniary-Dark, $alpha: .4);
+
+            &:hover {
+                transform: scale(1.02);
+            }
+        }
+    }
+
+    .containerPage {
+        position: relative;
+        width: 100%;
+        height: calc(100vh - 100px);
+
+        .fullPage {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+    }
+}

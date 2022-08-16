@@ -1,0 +1,135 @@
+.container-full {
+    position: relative;
+    width: 100%;
+    height: max-content;
+    padding: 1.2rem 1.2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .cover {
+        width: 100%;
+        height: 50%;
+        position: relative;
+
+        .container-cover {
+            width: 100%;
+            height: 100%;
+
+            .image-cover {
+                border-radius: 10px;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        .container-info {
+            background-color: rgba($color: $Therniary, $alpha: 0.05);
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            padding: 0 3rem;
+
+            * {
+                text-align: center;
+                color: $Therniary;
+            }
+
+            h1 {
+                margin: auto;
+                max-width: 1200px;
+                margin-top: 70px;
+                font-size: 3rem;
+            }
+
+            p {
+                margin: auto;
+                max-width: 1200px;
+                padding: 1rem 0;
+                font-size: 1.2rem;
+            }
+        }
+
+    }
+
+
+    @keyframes hello-goodbye {
+        from {
+            transform: translateY(calc(100vh - 350px));
+            opacity: 0;
+        }
+
+        to {
+            transform: none;
+            opacity: 1;
+        }
+    }
+
+    .container-form {
+        position: absolute;
+        overflow: auto;
+        background-color: $Therniary-Light;
+        width: 350px;
+        height: max-content;
+        padding: 2rem 1.5rem;
+        border-radius: 15px;
+        box-shadow: 0px 5px 2rem 0px rgba($color: $Therniary-Dark, $alpha: 0.4);
+        position: fixed;
+        top: 30%;
+
+        animation: hello-goodbye 1s;
+
+        * {
+            border-radius: 8px;
+            color: $Primary-Dark;
+        }
+
+        h2 {
+            text-align: center;
+            font-weight: 400;
+            font-size: 1.7rem;
+        }
+
+        .container-logo {
+            width: 100%;
+            text-align: center;
+
+            img {
+                height: 100px;
+            }
+        }
+
+
+        .separator {
+            display: flex;
+            align-items: center;
+            margin: 1rem 0px;
+
+            &-line {
+                flex: 1;
+                height: 1px;
+
+                &--left {
+                    background-image: linear-gradient(to left, #e2e2e2, #ffffff);
+                }
+
+                &--right {
+                    background-image: linear-gradient(to right, #e2e2e2, #ffffff);
+                }
+            }
+
+            &-text {
+                padding: 0 1rem;
+            }
+        }
+
+    }
+
+    .copyright {
+        position: absolute;
+        bottom: 10px;
+        color: $Text;
+    }
+}

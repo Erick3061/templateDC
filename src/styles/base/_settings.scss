@@ -1,0 +1,33 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+}
+
+html {
+    font-size: 62.5%; //10px 
+    font-size: 100%;
+
+    @media only screen and (max-width: 1200px) {
+        color: magenta;
+        font-size: 90%;
+    }
+
+    @media only screen and (max-width: 992px) {
+        color: blue;
+        font-size: 80%;
+    }
+
+    @media only screen and (max-width: 768px) {
+        color: green;
+        font-size: 75%;
+    }
+
+    @media only screen and (max-width: 576px) {
+        color: red;
+        font-size: 66%;
+    }
+
+
+}

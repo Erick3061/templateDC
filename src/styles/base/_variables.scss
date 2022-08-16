@@ -1,0 +1,37 @@
+// colors
+$Primary: #2e3558;
+$Primary-Light: #595f85;
+$Primary-Dark: #040f2f;
+
+$Secondary: #000000;
+$Secondary-Light: #000000;
+$Secondary-Dark: #000000;
+
+$Therniary: #ebecf0;
+$Therniary-Light: #ffffff;
+$Therniary-Dark: #b9babe;
+
+$background: aliceblue;
+
+$Error: #E87A74;
+$Warning: #F2BC88;
+$Success: #AFDA89;
+$Info: #5AC2ED;
+$Question: #8CACBD;
+
+
+$Btn-Primary: rgb(53, 209, 245);
+$Btn-Primary-boxShadow: rgb(129, 227, 249);
+$Btn-Secondary: rgb(33, 82, 255);
+
+$Text: #8492AA;
+
+//Media
+$sm: 576px; // <  --Phone, 
+$md: 768px; // >=  --Tablets
+$lg: 992px; // >=  --Desktop
+$xl: 1200px; // >=  --Desktop
+
+$p-m: 1rem;
+$p-s: .9rem;
+$p-xs: .8rem;
