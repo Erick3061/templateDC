@@ -1,0 +1,51 @@
+/* setup tooltips */
+.tooltip {
+    position: relative;
+}
+
+.tooltip:before,
+.tooltip:after {
+    display: block;
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+}
+
+.tooltip:after {
+    //Pintar triangulo
+    border-right: .5rem solid transparent;
+    border-top: .5rem solid $background;
+    border-left: .5rem solid transparent;
+    content: '';
+    height: 0;
+    bottom: 3rem;
+    left: 1.1rem;
+    width: 0;
+}
+
+.tooltip:before {
+    //pintar cuadro
+    background: $background;
+    border-radius: .5rem;
+    color: $Primary;
+    content: attr(data-title);
+    padding: .5rem;
+    bottom: 3.4rem;
+    text-transform: uppercase;
+    white-space: nowrap;
+    border: 1px solid $Primary;
+}
+
+/* the animations */
+/* fade */
+.tooltip.fade:after,
+.tooltip.fade:before {
+    transform: translate3d(0, 1rem, 0);
+    transition: all .2s ease-in-out;
+}
+
+.tooltip.fade:hover:after,
+.tooltip.fade:hover:before {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+}

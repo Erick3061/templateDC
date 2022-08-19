@@ -1,12 +1,10 @@
 import React from 'react';
-import { HomePage } from './pages/HomePage';
-import { LogInPage } from './pages/LogInPage';
 import './styles/styles.scss';
+import { AppRouter } from './routes/AppRouter';
 
 
 export const App = () => {
   return (
-    // <LogInPage />
-    <HomePage />
+    <AppRouter />
   )
 }

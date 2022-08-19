@@ -1,17 +1,18 @@
 // colors
-$Primary: #2e3558;
-$Primary-Light: #595f85;
-$Primary-Dark: #040f2f;
+$Primary: #11192a;
+$Primary-Light: #383f53;
+$Primary-Dark: #000000;
 
-$Secondary: #000000;
-$Secondary-Light: #000000;
-$Secondary-Dark: #000000;
+$Secondary: #5569ff;
+$Secondary-Light: #9197ff;
+$Secondary-Dark: #003fcb;
 
 $Therniary: #ebecf0;
 $Therniary-Light: #ffffff;
 $Therniary-Dark: #b9babe;
 
-$background: aliceblue;
+$background: #fefeff;
+$background-page: #f2f5f9;
 
 $Error: #E87A74;
 $Warning: #F2BC88;
@@ -25,6 +26,9 @@ $Btn-Primary-boxShadow: rgb(129, 227, 249);
 $Btn-Secondary: rgb(33, 82, 255);
 
 $Text: #8492AA;
+$Text2: rgba(255, 255, 255, 0.7);
+
+$Icons: #293040;
 
 //Media
 $sm: 576px; // <  --Phone, 

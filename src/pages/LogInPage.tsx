@@ -20,7 +20,7 @@ export const LogInPage = () => {
   }
 
   return (
-    <div className='container-full'>
+    <div className='container-LogIn'>
       <div className='cover'>
         <div className='container-cover'>
           <img className='image-cover' src={cover} alt="" />
