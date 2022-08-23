@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Routes, useNavigate } from 'react-router-dom'
 import { HomePage } from '../pages/HomePage';
-import { NavBar, SideBar } from '../components/Nav';
+import { SideNav, TopNav } from '../components/Nav';
 
 export const PrivateRoutes = () => {
     const Redirect = ({ to }: { to: string }): any => {
@@ -14,9 +14,9 @@ export const PrivateRoutes = () => {
 
     return (
         <div className='container'>
-            <SideBar />
+            <SideNav />
             <div className='container-page'>
-                <NavBar />
+                <TopNav />
                 <Routes>
                     <Route path='/' element={<HomePage />} />
                     <Route path="*" element={<Redirect to="/" />} />

@@ -3,7 +3,7 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import { Input } from '../components/Input';
 import { Switch } from '../components/Switch';
 import logo from '../assets/logo.png';
-import cover from '../assets/cover.jpeg';
+import cover from '../assets/cover.png';
 
 interface I_LogIn {
   access: string;
@@ -27,7 +27,7 @@ export const LogInPage = () => {
         </div>
         <div className='container-info'>
           <h1>Bienvenido</h1>
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deleniti numquam quam alias impedit. Quod quibusdam, sint nihil ut inventore fuga veniam fugit, temporibus recusandae dolorum ab suscipit praesentium totam dignissimos!</p>
+          {/* <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deleniti numquam quam alias impedit. Quod quibusdam, sint nihil ut inventore fuga veniam fugit, temporibus recusandae dolorum ab suscipit praesentium totam dignissimos!</p> */}
         </div>
       </div>
       <div className='container-form'>

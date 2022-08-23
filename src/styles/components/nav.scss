@@ -1,10 +1,11 @@
 .container {
-    &-sidebar {
+    &-sidenav {
         &-top {
             position: relative;
             width: 100%;
             height: calc(100% - 70px);
             padding: 10px 1rem;
+            overflow: auto;
 
             .container-img {
                 border-bottom: 1px solid $Icons;
@@ -20,6 +21,13 @@
             .container-user {
                 border-bottom: 1px solid $Icons;
                 padding: 1rem 0;
+                display: flex;
+                flex-direction: column;
+
+                .employee {
+                    color: aliceblue;
+                    height: 4rem;
+                }
 
                 #name {
                     font-size: 1.5rem;
@@ -32,6 +40,85 @@
                     font-weight: lighter;
                     color: $Text;
                 }
+            }
+
+            .section {
+                width: 100%;
+                padding: .5rem 0;
+
+                &-name {
+                    color: darken($color: $Text2, $amount: 10);
+                    font-size: .8rem;
+                    text-transform: uppercase;
+                    margin-bottom: .5rem;
+                }
+
+                &-opc {
+                    display: flex;
+                    align-items: center;
+                    padding: .7rem 1rem;
+                    border-radius: .6rem;
+                    margin: .2+rem 0;
+                    text-decoration: none;
+                    // border: 1px solid aliceblue;
+                    color: $Text2;
+
+                    .icon {
+                        margin: 0 .5rem;
+                        height: 1.5rem;
+                    }
+
+                    .icon-left {
+                        transition: all ease-in .3s;
+                        @extend .icon;
+                        height: 1.7rem;
+                        position: absolute;
+                        right: 1rem;
+                    }
+
+                    .icon-left-up {
+                        transition: all ease-in .3s;
+                        @extend .icon-left;
+                        transform: rotateZ(-180deg);
+                    }
+
+                    &:hover {
+                        transition: all ease .4s;
+                        background-color: #1e2737;
+                        color: white;
+                    }
+                }
+
+                &-dropdown {
+                    display: none;
+
+                    .section-opc {
+
+                        .icon {
+                            color: $Primary;
+                        }
+
+                        &:hover {
+                            .icon {
+                                transition: all ease .3s;
+                                color: white;
+                            }
+
+                            color: white;
+                        }
+                    }
+                }
+
+                &-show {
+                    display: block;
+                }
+
+                &-opc-active {
+                    @extend .section-opc;
+                    background-color: #1e2737;
+                }
+
+                // background-color: aliceblue;
             }
 
         }
@@ -58,7 +145,7 @@
         }
     }
 
-    &-navbar {
+    &-topnav {
         border-radius: 4px;
         box-shadow: rgb(34 51 84 / 20%) 0px 2px 8px -3px, rgb(34 51 84 / 10%) 0px 5px 22px -4px;
     }
