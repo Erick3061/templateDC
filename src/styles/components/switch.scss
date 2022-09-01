@@ -11,14 +11,14 @@
         width: 41px;
         height: 20px;
 
-        .desplaza {
+        .left {
             position: absolute;
             cursor: pointer;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: $Therniary;
+            background-color: darken($color: $Therniary, $amount: 7);
             -webkit-transition: .4s;
             transition: .4s;
             border-radius: 34px;
@@ -30,28 +30,29 @@
                 width: 14px;
                 left: 3px;
                 bottom: 3px;
-                background-color: $Therniary-Light;
+                background-color: $Primary-Light;
                 -webkit-transition: .4s;
                 transition: .4s;
                 border-radius: 50%;
             }
         }
 
-        .desplaza2 {
-            @extend .desplaza;
-            background-color: $Primary;
+        .right {
+            @extend .left;
+            background-color: $Primary-Light;
 
             &::before {
                 -webkit-transform: translateX(21px);
                 -ms-transform: translateX(21px);
                 transform: translateX(21px);
+                background-color: $Therniary;
             }
         }
 
     }
 
     p {
-        color: $Primary-Dark;
+        color: $Primary;
         font-size: 1.1rem;
     }
 }

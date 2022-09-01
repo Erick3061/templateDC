@@ -11,11 +11,18 @@ export const PrivateRoutes = () => {
         });
         return null;
     }
+    const closeModal = (Props: React.MouseEvent<HTMLDivElement, MouseEvent>,) => {
+        const padre = Props.currentTarget.parentElement;
+        if (padre) {
+            padre.style.display = 'none';
+        }
+    }
 
+    const nameClass: string = 'container__private';
     return (
-        <div className='container'>
+        <div className={nameClass}>
             <SideNav />
-            <div className='container-page'>
+            <div className={`${nameClass}_content`}>
                 <TopNav />
                 <Routes>
                     <Route path='/' element={<HomePage />} />

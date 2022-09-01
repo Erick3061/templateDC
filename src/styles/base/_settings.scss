@@ -1,5 +1,3 @@
-@import './variables';
-
 * {
     margin: 0px;
     padding: 0px;
@@ -11,23 +9,6 @@
         width: 8px;
         display: none;
     }
-
-    // /* Track */
-    // &::-webkit-scrollbar-track {
-    //     box-shadow: inset 0 0 5px grey;
-    //     border-radius: 10px;
-    // }
-
-    // /* Handle */
-    // &::-webkit-scrollbar-thumb {
-    //     background: $Primary-Light;
-    //     border-radius: 10px;
-    // }
-
-    // /* Handle on hover */
-    // &::-webkit-scrollbar-thumb:hover {
-    //     background: $Primary;
-    // }
 }
 
 html {
@@ -53,6 +34,4 @@ html {
         color: red;
         font-size: 66%;
     }
-
-
 }

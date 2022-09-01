@@ -1,0 +1,158 @@
+#genearl-modal {}
+
+.modal {
+    opacity: 0;
+    position: absolute;
+    // top: 0;
+    // right: 0;
+    width: 0rem;
+    height: 0rem;
+    backdrop-filter: blur(2px);
+    transition: all 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+
+    &.TL {
+        top: 0;
+        left: 0;
+    }
+
+    &.TR {
+        top: 0;
+        left: 0;
+    }
+
+    &.BL {
+        top: 0;
+        left: 0;
+    }
+
+    &.BR {
+        top: 0;
+        left: 0;
+    }
+
+    &.TC {
+        top: 0;
+        left: 0;
+    }
+
+    &.BC {
+        top: 0;
+        left: 0;
+    }
+
+    .full {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        // background-color: aqua;
+        // background-color: transparent;
+    }
+
+    .container-profile {
+        opacity: 0;
+        position: absolute;
+        // top: 0rem;
+        right: 0rem;
+        background-color: $background;
+        width: 0rem;
+        height: 0rem;
+        overflow: hidden;
+        border-radius: 1rem;
+        box-shadow: rgb(34 51 84 / 20%) 0px 2px 8px -3px, rgb(34 51 84 / 10%) 0px 5px 22px -4px;
+
+        transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+
+        &.show {
+            width: 17rem;
+            height: 25rem;
+            opacity: 1;
+            transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+        }
+
+        &.showTop {
+            opacity: 1;
+            transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+        }
+
+        .header {
+            display: flex;
+            border-top-left-radius: 1rem;
+            border-top-right-radius: 1rem;
+            background-color: rgba($color: $Text, $alpha: .2);
+            height: 5rem;
+            align-items: center;
+            justify-content: flex-start;
+
+            span {
+                #name {
+                    font-size: 1.3rem;
+                    font-weight: 500;
+                    color: $Text;
+                }
+
+                #role {
+                    font-size: 1.2rem;
+                    font-weight: lighter;
+                    color: $Text;
+                }
+            }
+
+            .icon {
+                color: $Primary;
+                width: 3rem;
+                height: 3rem;
+            }
+        }
+
+        .body {
+            height: calc(100% - 10rem);
+        }
+
+        .footer {
+            border-top: 1px solid rgba($color: $Text, $alpha: .3);
+            height: 5rem;
+            display: flex;
+            padding: .8rem;
+
+
+            button {
+                color: $Secondary;
+                font-size: 1.2rem;
+                font-weight: 500;
+                background-color: transparent;
+                width: 100%;
+                height: 100%;
+                border: 0;
+                margin: auto;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: .8rem;
+                cursor: pointer;
+
+                .icon {
+                    margin-right: .5rem;
+                    height: 2rem;
+                }
+
+                &:hover {
+                    background-color: lighten($color: $Primary, $amount: 80);
+                }
+            }
+        }
+    }
+
+    .container_modal-search {
+        opacity: 0;
+        height: 10rem;
+        width: 10rem;
+        background-color: aliceblue;
+    }
+}
+
+.showModal {
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}

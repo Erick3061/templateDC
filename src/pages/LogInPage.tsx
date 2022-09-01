@@ -19,17 +19,15 @@ export const LogInPage = () => {
     console.log(data);
   }
 
+
+  const nameClass: string = 'container__LogIn';
   return (
-    <div className='container-LogIn'>
-      <div className='cover'>
-        <div className='container-cover'>
-          <img className='image-cover' src={cover} alt="" />
-        </div>
-        <div className='container-info'>
-          <h1>Bienvenido</h1>
-          {/* <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deleniti numquam quam alias impedit. Quod quibusdam, sint nihil ut inventore fuga veniam fugit, temporibus recusandae dolorum ab suscipit praesentium totam dignissimos!</p> */}
-        </div>
+    <div className={nameClass}>
+      <div className={`${nameClass}_cover`}>
+        <img className='image' src={cover} alt="" />
+        <h1>Bienvenido</h1>
       </div>
+
       <div className='container-form'>
         <h2>Inicia sesión</h2>
         <div className='container-logo'>
@@ -40,7 +38,7 @@ export const LogInPage = () => {
           <Input placeholder='Contraseña' register={register} type='password' kys='password' errors={errors} />
           <Switch text='Recordar datos de sesión' func={() => setSw1(!sw1)} value={sw1} key='Switch' />
           <div className='container-btn'>
-            <button className='btn' type="submit">inicia sesión</button>
+            <button className='btn_LogIn' type="submit">inicia sesión</button>
             {/* <div className='separator'>
               <span className='separator-line separator-line--left'></span>
               <p className='separator-text'>or</p>
@@ -49,6 +47,7 @@ export const LogInPage = () => {
           </div>
         </form>
       </div>
+
       <p className='copyright'>Copyright © 2022 AAAAAA</p>
     </div>
   )

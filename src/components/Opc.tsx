@@ -17,8 +17,6 @@ interface Props {
 }
 
 export const Opc = ({ sectionName, isDropdown, routes }: Props) => {
-    console.log(routes);
-
 
     const ToggleClass = (Props: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
         const element = Props.currentTarget;
@@ -30,45 +28,36 @@ export const Opc = ({ sectionName, isDropdown, routes }: Props) => {
     }
 
     return (
-        <div className='section' >
+        <div key={`${sectionName}`} className='section' >
             {sectionName && <p className='section-name'>{sectionName}</p>}
             {
                 isDropdown
-                    ?
-                    <>
-                        {
-                            isDropdown.map(({ icon, name, routes }) =>
-                                <>
-                                    <a className='section-opc' onClick={ToggleClass}>
-                                        {icon && <Icon className='icon' path={icon} />}
-                                        {name}
-                                        <Icon className='icon-left' path={mdiMenuDown} />
-                                    </a>
-                                    <span className='section-dropdown'>
-                                        {
-                                            routes.map(R =>
-                                                <NavLink className={'section-opc'} to={R.to} style={({ isActive }) => isActive ? { backgroundColor: color.colorPrimaryLight, color: 'white' } : {}}>
-                                                    <Icon className='icon' path={R.icon ? R.icon : mdiCircleMedium} />
-                                                    {R.name}
-                                                </NavLink>
-                                            )
-                                        }
-                                    </span>
-                                </>
-                            )
-                        }
-                    </>
-                    :
-                    <>
-                        {
-                            routes?.map(R =>
-                                <NavLink className={'section-opc'} to={R.to} style={({ isActive }) => isActive ? { backgroundColor: color.colorPrimaryLight, color: 'white' } : {}}>
-                                    {R.icon && <Icon className='icon' path={R.icon} />}
-                                    {R.name}
-                                </NavLink>
-                            )
-                        }
-                    </>
+                    ? isDropdown.map(({ icon, name, routes }) =>
+                        <span key={`${name}`}>
+                            <a key={`${sectionName}-`} className='section-opc' onClick={ToggleClass}>
+                                {icon && <Icon className='icon' path={icon} />}
+                                {name}
+                                <Icon className='icon-left' path={mdiMenuDown} />
+                            </a>
+                            <span className='section-dropdown'>
+                                {
+                                    routes.map(R =>
+                                        <NavLink key={`${R.name}`} className={'section-opc'} to={R.to} style={({ isActive }) => isActive ? { backgroundColor: color.colorPrimaryLight, color: 'white' } : {}}>
+                                            <Icon className='icon' path={R.icon ? R.icon : mdiCircleMedium} />
+                                            {R.name}
+                                        </NavLink>
+                                    )
+                                }
+                            </span>
+                        </span>
+                    )
+                    : routes?.map(R =>
+                        <NavLink key={`${R.name}`} className={'section-opc'} to={R.to} style={({ isActive }) => isActive ? { backgroundColor: color.colorPrimaryLight, color: 'white' } : {}}>
+                            {R.icon && <Icon className='icon' path={R.icon} />}
+                            {R.name}
+                        </NavLink>
+                    )
+
             }
         </div >
     )

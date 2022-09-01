@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Logo from '../assets/logo.png';
 import { Icon } from "@mdi/react";
 import { mdiPowerStandby } from '@mdi/js';
@@ -6,10 +6,15 @@ import { mdiCalendar } from '@mdi/js';
 import { mdiCardsHeart } from '@mdi/js';
 import { mdiAccountCircle } from '@mdi/js';
 import { mdiPlus } from '@mdi/js';
+import { mdiAccount } from '@mdi/js';
 import { mdiDatabaseSettings } from '@mdi/js';
 import { mdiOrderBoolDescending } from '@mdi/js';
+import { mdiMagnify } from '@mdi/js';
 
 import { Opc } from './Opc';
+import { Profile } from './modals/Profile';
+import { Search } from './modals/Search';
+import { propsShowModal } from '../interfaces/IModal';
 
 export interface PropsRoutes {
     to: string;
@@ -18,9 +23,8 @@ export interface PropsRoutes {
 }
 
 export const SideNav = () => {
-    console.log(mdiPlus);
 
-    const nameClass: string = 'container-sidenav';
+    const nameClass: string = 'container__private_sidenav';
     const Registro: Array<PropsRoutes> = [
         { to: '/providers', name: 'Proveedores' },
         { to: '/seasons', name: 'Temporadas' },
@@ -38,12 +42,8 @@ export const SideNav = () => {
         { to: '/order', name: 'Pedido' },
         { to: '/credit', name: 'Crédito' },
         { to: '/voucher', name: 'Vale' },
+        { to: '/sell', name: 'Venta' },
         { to: '/cutbox', name: 'Generar corte de caja' },
-    ];
-    const Config: Array<PropsRoutes> = [
-        { to: '/', name: '' },
-        { to: '/credit', name: 'Crédito' },
-        { to: '/voucher', name: 'Vale' },
     ];
     return (
         <nav className={nameClass}>
@@ -61,7 +61,6 @@ export const SideNav = () => {
                     { icon: mdiOrderBoolDescending, name: 'Acciones Pedido', routes: ActionOrder },
                     { icon: mdiDatabaseSettings, name: 'Administrar', routes: Registro }
                 ]} />
-                <Opc sectionName='Configuración' routes={Config} />
 
             </div>
             <div className={`${nameClass}-bottom`}>
@@ -80,10 +79,56 @@ export const SideNav = () => {
 }
 
 export const TopNav = () => {
-    const nameClass: string = 'container-topnav';
+    const [idModal, setIdModal] = useState<string | undefined>(undefined);
+
+    const showModal = (element: React.MouseEvent<HTMLButtonElement | HTMLDivElement, MouseEvent>, { idModal, translate, start }: propsShowModal) => {
+        setIdModal(idModal);
+
+        const Modal = document.getElementById('general-modal');
+        if (idModal && Modal) {
+            const modalOpen = document.getElementById(idModal);
+            Modal.classList.add('showModal');
+            if (modalOpen) {
+                if (translate) {
+                    modalOpen.style.transform = `translateY(1rem)`;
+                    modalOpen.style.transform += `translateX(-1.8rem)`;
+                }
+                modalOpen.classList.add('show');
+            }
+        }
+
+    }
+    const closeModal = (element: React.MouseEvent<HTMLButtonElement | HTMLDivElement, MouseEvent>) => {
+        const Modal = element.currentTarget.parentElement;
+        if (idModal && Modal) {
+            const modalOpen = document.querySelector(`#${idModal}`);
+            modalOpen?.classList.remove('show');
+            Modal.classList.remove('showModal');
+        }
+        setIdModal(undefined);
+    }
+    const nameClass: string = 'container__private_content_topnav';
     return (
-        <nav className='container-topnav'>
-            topnav
-        </nav>
+        <>
+            <nav className={nameClass}>
+                <div className='left'>
+                    <button className='square picon' onClick={element => showModal(element, { idModal: 'modalSearch', start: 'TL' })}>
+                        <Icon path={mdiMagnify} />
+                    </button>
+                    <span className='simpleSeparator'></span>
+                    ssss
+                </div>
+                <div className='right'>
+                    <button className='square-user' onClick={element => showModal(element, { idModal: 'modalProfile', start: 'TR' })}>
+                        <Icon className='icon' path={mdiAccount} />
+                    </button>
+                </div>
+                <div id='general-modal' className='modal'>
+                    <div className='full' onClick={closeModal}></div>
+                    <Profile />
+                    <Search />
+                </div>
+            </nav>
+        </>
     )
 }

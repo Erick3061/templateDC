@@ -1,10 +1,19 @@
 import React from 'react';
 import './styles/styles.scss';
-import { AppRouter } from './routes/AppRouter';
+import { PrivateRoutes } from './routes/PrivateRoutes';
+import { PublicRoutes } from './routes/PublicRoutes';
 
 
 export const App = () => {
+  // document.addEventListener('keydown', key => {
+  //   console.log(key);
+  // })
   return (
-    <AppRouter />
+    <div className='container__full'>
+      {
+        <PrivateRoutes />
+        // (true) ? <PrivateRoutes /> : <PublicRoutes />
+      }
+    </div>
   )
 }

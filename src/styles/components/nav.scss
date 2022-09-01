@@ -1,10 +1,9 @@
-.container {
-    &-sidenav {
+.container__private {
+    &_sidenav {
         &-top {
-            position: relative;
             width: 100%;
             height: calc(100% - 70px);
-            padding: 10px 1rem;
+            padding: 1rem 1rem;
             overflow: auto;
 
             .container-img {
@@ -145,8 +144,75 @@
         }
     }
 
-    &-topnav {
+    &_content_topnav {
         border-radius: 4px;
         box-shadow: rgb(34 51 84 / 20%) 0px 2px 8px -3px, rgb(34 51 84 / 10%) 0px 5px 22px -4px;
+        display: inline-flex;
+
+        .picon {
+            padding: .4rem;
+        }
+
+        .square {
+            background-color: transparent;
+            border: 0;
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: .8rem;
+            margin: .5rem;
+            cursor: pointer;
+            color: $Secondary;
+            transition: all ease-in-out .2s;
+
+            .icon-user {
+                color: $Primary;
+            }
+
+            &:hover {
+                transition: all ease-in-out .2s;
+                color: $Secondary-Dark;
+                background-color: lighten($color: $Primary, $amount: 80);
+            }
+        }
+
+        .left {
+            border: 1px solid blue;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 0 1rem;
+
+            .square-user {
+                position: relative;
+                @extend .square;
+                transition: all ease .5s;
+                color: $Primary;
+                background-color: lighten($color: $Primary, $amount: 80);
+                border: 1px solid transparent;
+
+                &:hover {
+                    transition: all ease .4s;
+                    border: 1px solid $Primary;
+                    background-color: lighten($color: $Primary,
+                            $amount: 80);
+                    box-shadow: -1px 1px 1px 1px rgba($Primary, 0.15);
+                    -webkit-box-shadow: -1px 1px 7px 1px rgba($Primary, 0.15);
+                    -moz-box-shadow: -1px 1px 1px 1px rgba($Primary, 0.15);
+                }
+            }
+
+            .simpleSeparator {
+                height: 55%;
+                margin: 1rem;
+                border-left: 1px solid rgba($color: $Text, $alpha: .3);
+            }
+        }
+
+        .right {
+            @extend .left;
+            border-color: brown;
+            justify-content: flex-end;
+        }
     }
 }
