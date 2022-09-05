@@ -53,6 +53,7 @@
                 }
 
                 &-opc {
+                    position: relative;
                     display: flex;
                     align-items: center;
                     padding: .7rem 1rem;
@@ -68,15 +69,15 @@
                     }
 
                     .icon-left {
-                        transition: all ease-in .3s;
+                        transition: all ease .2s;
                         @extend .icon;
                         height: 1.7rem;
                         position: absolute;
-                        right: 1rem;
+                        right: 0;
                     }
 
                     .icon-left-up {
-                        transition: all ease-in .3s;
+                        transition: all ease .2s;
                         @extend .icon-left;
                         transform: rotateZ(-180deg);
                     }
@@ -115,9 +116,11 @@
                 &-opc-active {
                     @extend .section-opc;
                     background-color: #1e2737;
-                }
 
-                // background-color: aliceblue;
+                    * {
+                        color: white;
+                    }
+                }
             }
 
         }

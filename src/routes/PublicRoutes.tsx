@@ -1,21 +1,12 @@
 import React from 'react';
-import { Routes, Route, useNavigate } from 'react-router-dom';
-import { LogInPage } from '../pages/LogInPage';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import { LogInPage } from '../pages/Public/LogInPage';
 
 export const PublicRoutes = () => {
-
-    const Redirect = ({ to }: { to: string }): any => {
-        let navigate = useNavigate();
-        React.useEffect(() => {
-            navigate(to);
-        });
-        return null;
-    }
-
     return (
         <Routes>
             <Route path='/' element={<LogInPage />} />
-            <Route path="*" element={<Redirect to="/" />} />
+            <Route path="*" element={<Navigate replace to="/" />} />
         </Routes>
     )
 }

@@ -10,10 +10,7 @@ export const App = () => {
   // })
   return (
     <div className='container__full'>
-      {
-        <PrivateRoutes />
-        // (true) ? <PrivateRoutes /> : <PublicRoutes />
-      }
+      {(true) ? <PrivateRoutes /> : <PublicRoutes />}
     </div>
   )
 }

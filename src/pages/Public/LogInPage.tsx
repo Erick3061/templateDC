@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import { Input } from '../components/Input';
-import { Switch } from '../components/Switch';
-import logo from '../assets/logo.png';
-import cover from '../assets/cover.png';
+import { Input } from '../../components/Input';
+import { Switch } from '../../components/Switch';
+import logo from '../../assets/logo.png';
+import cover from '../../assets/cover.png';
 
 interface I_LogIn {
   access: string;
