@@ -58,13 +58,13 @@
                     align-items: center;
                     padding: .7rem 1rem;
                     border-radius: .6rem;
-                    margin: .2+rem 0;
+                    margin: .2rem 0;
                     text-decoration: none;
                     // border: 1px solid aliceblue;
                     color: $Text2;
 
                     .icon {
-                        margin: 0 .5rem;
+                        margin: 0.5rem;
                         height: 1.5rem;
                     }
 
@@ -79,7 +79,7 @@
                     .icon-left-up {
                         transition: all ease .2s;
                         @extend .icon-left;
-                        transform: rotateZ(-180deg);
+                        transform: rotateX(-180deg);
                     }
 
                     &:hover {
@@ -90,35 +90,46 @@
                 }
 
                 &-dropdown {
-                    display: none;
+                    position: relative;
+                    width: 100%;
+                    height: 0rem;
+                    transition: height cubic-bezier(0.165, 0.84, 0.44, 1) .3s;
+                    overflow: hidden;
 
-                    .section-opc {
-
-                        .icon {
-                            color: $Primary;
-                        }
+                    &-opc {
+                        @extend .section-opc;
 
                         &:hover {
                             .icon {
+                                visibility: hidden;
                                 transition: all ease .3s;
-                                color: white;
+                                color: $background;
                             }
 
-                            color: white;
+                            color: $background;
                         }
+                    }
+
+                    &-active {
+                        @extend .section-opc-active;
+                        color: $background;
                     }
                 }
 
                 &-show {
-                    display: block;
+                    border-radius: .5rem;
+                    border: 1px solid rgba($color: $Text, $alpha: .3);
+                    height: calc(var(--opcs) * 4.2rem);
+                    transition: height cubic-bezier(0.165, 0.84, 0.44, 1) .3s;
                 }
 
                 &-opc-active {
                     @extend .section-opc;
                     background-color: #1e2737;
+                    color: $background;
 
                     * {
-                        color: white;
+                        color: $background;
                     }
                 }
             }

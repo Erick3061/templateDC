@@ -1,171 +1,165 @@
 #genearl-modal {}
 
-.modal {
-    position: fixed; //fija
+.modalOne {
+    right: 0;
+    top: 0;
+    position: fixed;
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100%;
     width: 100%;
     backdrop-filter: blur(2px);
-    inset: 0px;
     visibility: hidden;
     opacity: 0;
-    transition: backdrop-filter ease-out 0s 349ms,
-        opacity ease-out 0s 150ms;
+    transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 100ms 100ms;
+}
 
-    &.TL {
-        top: 0;
-        left: 0;
+.modalTop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    visibility: 0;
+    width: 100%;
+    height: 0%;
+    backdrop-filter: blur(2px);
+    transition: all cubic-bezier(0.77, 0, 0.175, 1) 225ms;
+}
+
+.center-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.full {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.container-profile {
+    position: absolute;
+    border: 1px solid rgba($Primary, 0.15);
+    top: 1rem;
+    right: var(--right);
+    width: 0rem;
+    height: 0rem;
+    background-color: $background;
+    border-radius: 1rem;
+    box-shadow: rgb(34 51 84 / 20%) 0px 2px 8px -3px, rgb(34 51 84 / 10%) 0px 5px 22px -4px;
+    opacity: 0;
+
+    transition: all cubic-bezier(0.4, 0, 0.2, 1) 100ms 0ms;
+
+    &-show {
+        height: 30rem;
+        width: 20rem;
+        opacity: 1;
+        transition: all cubic-bezier(0.4, 0, 0.2, 1) 349ms 0ms;
     }
 
-    &.TR {
-        top: 0;
-        right: 0;
-    }
+    .header {
+        display: flex;
+        border-top-left-radius: 1rem;
+        border-top-right-radius: 1rem;
+        background-color: rgba($color: $Text, $alpha: .2);
+        height: 5rem;
+        padding: 0 .5rem;
+        align-items: center;
+        justify-content: flex-start;
 
-    // &.BL {
-    //     top: 0;
-    //     left: 0;
-    // }
+        span {
+            #name {
+                font-size: 1.2rem;
+                font-weight: 500;
+                color: $Text;
+            }
 
-    // &.BR {
-    //     top: 0;
-    //     left: 0;
-    // }
-
-    // &.TC {
-    //     top: 0;
-    //     left: 0;
-    // }
-
-    // &.BC {
-    //     top: 0;
-    //     left: 0;
-    // }
-
-    .full {
-        overflow: hidden;
-        position: relative;
-        width: 100%;
-        height: 100%;
-    }
-
-    .container-profile {
-        position: absolute;
-        border: 1px solid rgba($Primary, 0.15);
-        top: 1rem;
-        right: 1.8rem;
-        width: 0rem;
-        height: 0rem;
-        background-color: $background;
-        border-radius: 1rem;
-        box-shadow: rgb(34 51 84 / 20%) 0px 2px 8px -3px, rgb(34 51 84 / 10%) 0px 5px 22px -4px;
-        opacity: 0;
-        transition: all 349ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-
-        &-show {
-            height: 30rem;
-            width: 20rem;
-            opacity: 1;
-            transition: opacity 349ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+            #role {
+                font-size: 1.1rem;
+                font-weight: lighter;
+                color: $Text;
+            }
         }
 
-        .header {
+        .icon {
+            color: $Primary;
+            width: 3rem;
+            height: 3rem;
+        }
+    }
+
+    .body {
+        height: calc(100% - 10rem);
+    }
+
+    .footer {
+        border-top: 1px solid rgba($color: $Text, $alpha: .3);
+        height: 5rem;
+        display: flex;
+        padding: .8rem;
+
+
+        button {
+            color: $Secondary;
+            font-size: 1.1rem;
+            font-weight: 500;
+            background-color: transparent;
+            width: 100%;
+            height: 100%;
+            border: 0;
+            margin: auto;
             display: flex;
-            border-top-left-radius: 1rem;
-            border-top-right-radius: 1rem;
-            background-color: rgba($color: $Text, $alpha: .2);
-            height: 5rem;
-            padding: 0 .5rem;
             align-items: center;
-            justify-content: flex-start;
-
-            span {
-                #name {
-                    font-size: 1.2rem;
-                    font-weight: 500;
-                    color: $Text;
-                }
-
-                #role {
-                    font-size: 1.1rem;
-                    font-weight: lighter;
-                    color: $Text;
-                }
-            }
+            justify-content: center;
+            border-radius: .8rem;
+            cursor: pointer;
 
             .icon {
-                color: $Primary;
-                width: 3rem;
-                height: 3rem;
+                margin-right: .5rem;
+                height: 2rem;
             }
-        }
 
-        .body {
-            height: calc(100% - 10rem);
-        }
-
-        .footer {
-            border-top: 1px solid rgba($color: $Text, $alpha: .3);
-            height: 5rem;
-            display: flex;
-            padding: .8rem;
-
-
-            button {
-                color: $Secondary;
-                font-size: 1.1rem;
-                font-weight: 500;
-                background-color: transparent;
-                width: 100%;
-                height: 100%;
-                border: 0;
-                margin: auto;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                border-radius: .8rem;
-                cursor: pointer;
-
-                .icon {
-                    margin-right: .5rem;
-                    height: 2rem;
-                }
-
-                &:hover {
-                    background-color: lighten($color: $Primary, $amount: 80);
-                }
+            &:hover {
+                background-color: lighten($color: $Primary, $amount: 80);
             }
-        }
-    }
-
-    .container_modal-search {
-        visibility: hidden;
-        position: absolute;
-        top: 10px;
-        width: 40rem;
-        height: 40rem;
-        background-color: $background;
-
-        &-show {
-            // animation: modal-Top 5s;
-            visibility: visible;
         }
     }
 }
 
+.container_modal-search {
+    position: absolute;
+    visibility: hidden;
+    top: 1rem;
+    width: 35rem;
+    height: 38rem;
+    background-color: $background;
+    border-radius: .8rem;
+    box-shadow: rgba($Primary, 0.5) 0rem .2rem 3rem -1rem, rgba($Primary-Dark, 0.5) 0rem .4rem 1.5rem -1rem;
+    overflow: auto;
+    opacity: 0;
+
+    &-show {
+        // animation: modal-Top 5s;
+        opacity: 1;
+        visibility: visible;
+        transition: opacity cubic-bezier(0.4, 0, 0.2, 1) 225ms,
+    }
+}
+
 .showModalTop {
-    background-color: darkcyan;
     visibility: visible;
     opacity: 1;
-    height: 0%;
-    transition: opacity ease 1s;
-    // animation: modal-Top 5s;
+    height: 100%;
+    background-color: rgba($color: $Text, $alpha: .1);
+    transition: all cubic-bezier(0.4, 0, 0.2, 1) 225ms,
 }
 
 .showModal {
     visibility: visible;
     opacity: 1;
-    transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    transition: opacity ease 225ms 0ms;
+    transition: opacity cubic-bezier(0.075, 0.82, 0.165, 1) 225ms 0ms;
 }

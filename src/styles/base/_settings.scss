@@ -18,6 +18,29 @@ html {
     @media only screen and (max-width: 1200px) {
         color: magenta;
         font-size: 90%;
+
+        .container {
+            &__private {
+                &_sidenav {
+                    position: absolute;
+                    left: -18rem;
+                    background-color: aqua;
+                }
+
+                &_content {
+                    flex: 1;
+
+                    &_topnav {
+                        background-color: aqua;
+
+                        .container-profile {
+                            background-color: bisque;
+                            right: calc(var(--right) * 2.7);
+                        }
+                    }
+                }
+            }
+        }
     }
 
     @media only screen and (max-width: 992px) {

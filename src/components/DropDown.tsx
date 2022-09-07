@@ -1,9 +1,8 @@
-import React, { Children } from 'react'
+import React from 'react';
 import { Icon } from '@mdi/react';
-import { mdiCircleMedium, mdiMenuDownOutline } from '@mdi/js';
+import { mdiCircleMedium, mdiChevronDown } from '@mdi/js';
 import { PropsRoute } from '../interfaces/interfaces';
 import { NavLink } from 'react-router-dom';
-import { color } from '../colors/colors';
 
 export const DropDown = ({ icon, routes, name }: { icon: string, routes: Array<PropsRoute>, name: string }) => {
     const ToggleClass = (Props: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
@@ -20,18 +19,18 @@ export const DropDown = ({ icon, routes, name }: { icon: string, routes: Array<P
             <a key={name} className='section-opc' onClick={ToggleClass}>
                 <Icon className='icon' path={icon} />
                 {name}
-                <Icon className='icon-left' path={mdiMenuDownOutline} />
+                <Icon className='icon-left' path={mdiChevronDown} />
             </a>
-            <span className='section-dropdown'>
+            <div className='section-dropdown' style={{ ['--opcs' as any]: routes.length }}>
                 {
                     routes.map(R =>
-                        <NavLink key={`${R.name}`} className={({ isActive }) => isActive ? 'section-opc-active' : 'section-opc'} to={R.to}>
+                        <NavLink key={`${R.name}`} className={({ isActive }) => isActive ? 'section-dropdown-active' : 'section-dropdown-opc'} style={({ isActive }) => isActive ? { display: 'flex', visibility: 'visible' } : {}} to={R.to}>
                             <Icon className='icon' path={R.icon ? R.icon : mdiCircleMedium} />
                             {R.name}
                         </NavLink>
                     )
                 }
-            </span>
+            </div>
         </>
     )
 }
