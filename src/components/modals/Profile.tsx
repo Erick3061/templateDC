@@ -2,16 +2,14 @@ import React from 'react';
 import { mdiLockOpen } from '@mdi/js';
 import { mdiAccountCircle } from '@mdi/js';
 import { Icon } from '@mdi/react';
+import { PropsModal } from '../../interfaces/IModal';
 
-interface Props {
-    closeModal: (element: React.MouseEvent<HTMLButtonElement | HTMLDivElement, MouseEvent>) => void;
-}
-
-export const Profile = ({ closeModal }: Props) => {
+export const Profile = ({ openModal, setopenModal }: PropsModal) => {
+    const { profile } = openModal;
     return (
-        <div id='modal-profile' className='modalOne'>
-            <div className='full' onClick={closeModal}></div>
-            <div id='modalProfile' className='container-profile' style={{ ['--right' as any]: '1.8rem' }}>
+        <div id='modal-profile' className={`modalOne ${profile ? 'showModal' : ''}`}>
+            <div className='full' onClick={() => setopenModal({ ...openModal, profile: false })}></div>
+            <div id='modalProfile' className={`container-profile ${profile ? 'container-profile-show' : ''}`} style={{ ['--right' as any]: '1.8rem' }}>
                 <div className='header'>
                     <Icon className='icon' path={mdiAccountCircle} />
                     <span>

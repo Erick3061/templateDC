@@ -160,7 +160,7 @@
 
     &_content_topnav {
         border-radius: 4px;
-        box-shadow: rgb(34 51 84 / 20%) 0px 2px 8px -3px, rgb(34 51 84 / 10%) 0px 5px 22px -4px;
+        box-shadow: rgba($Text, 0.5) 0rem .2rem 3rem -1rem, rgba($Text, 0.5) 0rem .4rem 1.5rem -1rem;
         display: inline-flex;
 
         .picon {
@@ -194,7 +194,6 @@
         }
 
         .left {
-            border: 1px solid blue;
             width: 100%;
             display: flex;
             align-items: center;
@@ -229,7 +228,6 @@
 
         .right {
             @extend .left;
-            border-color: brown;
             justify-content: flex-end;
         }
     }

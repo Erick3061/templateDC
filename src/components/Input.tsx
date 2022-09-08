@@ -1,6 +1,5 @@
 import React from 'react';
 import { DeepRequired, FieldErrorsImpl, UseFormRegister } from 'react-hook-form';
-import { Path } from 'react-router-dom';
 import { color } from '../colors/colors';
 
 interface Props<T, K extends keyof T> {

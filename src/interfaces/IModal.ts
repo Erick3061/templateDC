@@ -1,5 +1,10 @@
-export interface propsShowModal {
-    idModal: string;
-    start: 'TL' | 'TR' | 'BL' | 'BR' | 'TC' | 'BC';
-    translate?: { x: string, y: string };
+export interface PropsModal {
+    openModal: {
+        search: boolean;
+        profile: boolean;
+    },
+    setopenModal: React.Dispatch<React.SetStateAction<{
+        search: boolean;
+        profile: boolean;
+    }>>
 }

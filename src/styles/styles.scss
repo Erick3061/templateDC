@@ -119,7 +119,7 @@
             &_page {
                 width: 100%;
                 height: calc(100% - 4.5rem);
-                background-color: aliceblue;
+                background-color: $background;
                 overflow: auto;
                 padding: 1rem;
             }
