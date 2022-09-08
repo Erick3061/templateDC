@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Icon } from "@mdi/react";
-import { mdiAccount } from '@mdi/js';
+import { mdiAccount, mdiMenu } from '@mdi/js';
 import { mdiMagnify } from '@mdi/js';
 import { propsShowModal } from '../interfaces/IModal';
 import { Profile } from '../components/modals/Profile';
@@ -56,9 +56,14 @@ export const TopNav = () => {
                         onClick={element => setNameModal({ modal: 'modal-profile', element, classOpen: 'showModal', idModal: 'modalProfile' })}>
                         <Icon className='icon' path={mdiAccount} />
                     </button>
-                    <button className='square picon'
-                        onClick={element => { }}>
-                        <Icon className='icon' path={mdiAccount} />
+                    <button className='square-user picon menu'
+                        onClick={element => {
+                            const portal = document.querySelector('.container__private_portal');
+                            const sideNav = document.querySelector('.container__private_sidenav');
+                            portal?.classList.toggle('container__private_portal-show');
+                            sideNav?.classList.toggle('showSidenav');
+                        }}>
+                        <Icon className='icon' path={mdiMenu} />
                     </button>
                 </div>
                 <Profile closeModal={closeModal} />

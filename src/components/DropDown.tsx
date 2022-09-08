@@ -24,7 +24,17 @@ export const DropDown = ({ icon, routes, name }: { icon: string, routes: Array<P
             <div className='section-dropdown' style={{ ['--opcs' as any]: routes.length }}>
                 {
                     routes.map(R =>
-                        <NavLink key={`${R.name}`} className={({ isActive }) => isActive ? 'section-dropdown-active' : 'section-dropdown-opc'} style={({ isActive }) => isActive ? { display: 'flex', visibility: 'visible' } : {}} to={R.to}>
+                        <NavLink
+                            onClick={() => {
+                                const portal = document.querySelector(`.container__private_portal`);
+                                portal?.classList.remove('container__private_portal-show');
+                                const sidenav = document.querySelector('.container__private_sidenav');
+                                sidenav?.classList.remove('showSidenav');
+                            }}
+                            key={`${R.name}`}
+                            className={({ isActive }) => isActive ? 'section-dropdown-active' : 'section-dropdown-opc'}
+                            style={({ isActive }) => isActive ? { display: 'flex', visibility: 'visible' } : {}} to={R.to}
+                        >
                             <Icon className='icon' path={R.icon ? R.icon : mdiCircleMedium} />
                             {R.name}
                         </NavLink>

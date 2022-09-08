@@ -15,7 +15,7 @@ html {
     font-size: 62.5%; //10px 
     font-size: 100%;
 
-    @media only screen and (max-width: 1200px) {
+    @media only screen and (max-width: 1280px) {
         color: magenta;
         font-size: 90%;
 
@@ -24,18 +24,26 @@ html {
                 &_sidenav {
                     position: absolute;
                     left: -18rem;
-                    background-color: aqua;
+                    transition: all cubic-bezier(0.4, 0, 0.2, 1) 225ms;
+
+                    &.showSidenav {
+                        width: 22rem;
+                        left: 0rem;
+                    }
                 }
 
                 &_content {
                     flex: 1;
 
                     &_topnav {
-                        background-color: aqua;
 
                         .container-profile {
                             background-color: bisque;
                             right: calc(var(--right) * 2.7);
+                        }
+
+                        .menu {
+                            display: block;
                         }
                     }
                 }

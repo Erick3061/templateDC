@@ -25,43 +25,73 @@ export const SideNav = () => {
         { to: '/users', name: 'Usuarios', icon: mdiAccount },
     ];
     return (
-        <nav className={nameClass}>
-            <div className={`${nameClass}-top`}>
-                <div className='container-img'>
-                    <img className='logo' src={Logo} alt="img" />
-                </div>
-                <div className='container-user'>
-                    <Icon className='employee' path={mdiAccountCircle} />
-                    <p id='name'>Erick Andrade Ramos</p>
-                    <p id='role'>Empleado</p>
-                </div>
-                <DropDown key={'Pedido'} name='Pedido' icon={mdiOrderNumericAscending} routes={dropDownOrder} />
-                {
-                    Genaral.map(R =>
-                        <NavLink key={`${R.name}`} className={({ isActive }) => isActive ? 'section-opc-active' : 'section-opc'} to={R.to} >
-                            {R.icon && <Icon className='icon' path={R.icon} />}
-                            {R.name}
-                        </NavLink>
-                    )
-                }
-                <DropDown key={'Register'} name='Registro' icon={mdiPlus} routes={dropDonwRegister} />
-                <NavLink key={`Config`} className={({ isActive }) => isActive ? 'section-opc-active' : 'section-opc'} to={'/config'} >
-                    <Icon className='icon' path={mdiCog} />
-                    Configuración
-                </NavLink>
+        <>
+            <div className='container__private_portal' onClick={element => {
+                element.currentTarget.classList.toggle('container__private_portal-show')
+                const sidenav = document.querySelector(`.${nameClass}`);
+                sidenav?.classList.toggle('showSidenav');
+            }}></div>
+            <nav className={nameClass}>
+                <div className={`${nameClass}-top`}>
+                    <div className='container-img'>
+                        <img className='logo' src={Logo} alt="img" />
+                    </div>
+                    <div className='container-user' onClick={element => {
+                        console.log(nameClass);
+                        //solo ver iconos en el sidenav
+                    }}>
+                        <Icon className='employee' path={mdiAccountCircle} />
+                        <p id='name'>Erick Andrade Ramos</p>
+                        <p id='role'>Empleado</p>
+                    </div>
+                    <DropDown key={'Pedido'} name='Pedido' icon={mdiOrderNumericAscending} routes={dropDownOrder} />
+                    {
+                        Genaral.map(R =>
+                            <NavLink
+                                onClick={() => {
+                                    const portal = document.querySelector(`.container__private_portal`);
+                                    portal?.classList.remove('container__private_portal-show');
+                                    const sidenav = document.querySelector('.container__private_sidenav');
+                                    sidenav?.classList.remove('showSidenav');
+                                }}
+                                key={`${R.name}`}
+                                className={({ isActive }) => isActive ? 'section-opc-active' : 'section-opc'}
+                                to={R.to}
+                            >
+                                {R.icon && <Icon className='icon' path={R.icon} />}
+                                {R.name}
+                            </NavLink>
+                        )
+                    }
+                    <DropDown key={'Register'} name='Registro' icon={mdiPlus} routes={dropDonwRegister} />
+                    <NavLink
+                        onClick={() => {
+                            const portal = document.querySelector(`.container__private_portal`);
+                            portal?.classList.remove('container__private_portal-show');
+                            const sidenav = document.querySelector('.container__private_sidenav');
+                            sidenav?.classList.remove('showSidenav');
+                        }}
+                        key={`Config`}
+                        className={({ isActive }) => isActive ? 'section-opc-active' : 'section-opc'}
+                        to={'/config'}
+                    >
+                        <Icon className='icon' path={mdiCog} />
+                        Configuración
+                    </NavLink>
 
-            </div>
-            <div className={`${nameClass}-bottom`}>
-                <span className="tooltip fade" data-title="Eventos">
-                    <Icon className='squareIcon' path={mdiCalendar} />
-                </span>
-                <span className="tooltip fade" data-title="love">
-                    <Icon className='squareIcon' path={mdiCardsHeart} />
-                </span>
-                <span className="tooltip fade" data-title="Cerrar sesión" onClick={() => alert('Cerrando sesión')}>
-                    <Icon className='squareIcon' path={mdiPowerStandby} />
-                </span>
-            </div>
-        </nav >
+                </div>
+                <div className={`${nameClass}-bottom`}>
+                    <span className="tooltip fade" data-title="Eventos">
+                        <Icon className='squareIcon' path={mdiCalendar} />
+                    </span>
+                    <span className="tooltip fade" data-title="love">
+                        <Icon className='squareIcon' path={mdiCardsHeart} />
+                    </span>
+                    <span className="tooltip fade" data-title="Cerrar sesión" onClick={() => alert('Cerrando sesión')}>
+                        <Icon className='squareIcon' path={mdiPowerStandby} />
+                    </span>
+                </div>
+            </nav >
+        </>
     )
 }
