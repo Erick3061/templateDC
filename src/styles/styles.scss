@@ -11,7 +11,8 @@
 @import './components/modal';
 // pages
 // @import './pages/namePage';
-@import './pages/logIn';
+@import './pages/logIn.scss';
+@import './pages/Users.scss';
 
 .container {
 
@@ -121,7 +122,6 @@
                 height: calc(100% - 4.5rem);
                 background-color: $background;
                 overflow: auto;
-                padding: 1rem;
             }
         }
 
