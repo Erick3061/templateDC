@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Icon } from '@mdi/react';
-import { mdiViewGridOutline, mdiPlus, mdiViewListOutline, mdiMagnify } from '@mdi/js';
+import { mdiViewGridOutline, mdiPlus, mdiViewListOutline, mdiMagnify, mdiDeleteOutline, mdiCardAccountDetailsOutline } from '@mdi/js';
+import { color } from '../../colors/colors';
 
 export const ClientsPage = () => {
     const nameClass: string = 'container__private_content_page';
@@ -58,6 +59,34 @@ export const ClientsPage = () => {
                         />
                     </div>
                     <table>
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>teléfono</th>
+                                <th className='text-center'>Tipo</th>
+                                <th className='text-center'>Estado</th>
+                                <th className='text-center'>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Erick Andrade Ramos</td>
+                                <td>2371071069</td>
+                                <td><p className='type' style={{ ['--color' as any]: color.colorInfo }}>Cliente</p></td>
+                                <td className='text-center'>activo</td>
+                                <td className='actions center'>
+                                    <button onClick={() => { }} data-text="Ver">
+                                        <Icon className='icon' path={mdiCardAccountDetailsOutline} />
+                                    </button>
+                                    <button onClick={() => { }} data-text="Eventos">
+                                        <Icon className='icon' path={mdiDeleteOutline} />
+                                    </button>
+                                    <button onClick={() => { }} data-text="Eliminar">
+                                        <Icon className='icon' path={mdiDeleteOutline} />
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
                     </table>
                     <div className='pagination'>
 

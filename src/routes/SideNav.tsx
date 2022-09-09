@@ -49,7 +49,7 @@ export const SideNav = () => {
                     </div>
                     {Genaral.map(R => <Nav key={`${R.name}`} icon={R.icon} name={R.name} to={R.to} />)}
                     <DropDown key={'Pedido'} name='Pedido' icon={mdiOrderNumericAscending} routes={dropDownOrder} />
-                    <DropDown key={'Pedido'} name='Cliente' icon={mdiFileAccount} routes={dropDownClient} />
+                    <DropDown key={'Cliente'} name='Cliente' icon={mdiFileAccount} routes={dropDownClient} />
                     <DropDown key={'Register'} name='Registro' icon={mdiPlus} routes={dropDonwRegister} />
                     <Nav name='Configuración' to='/config' icon={mdiCog} />
                 </div>
