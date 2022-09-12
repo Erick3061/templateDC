@@ -121,152 +121,169 @@
         }
     }
 
-    .container-search {
-        height: 3rem;
-        display: block;
+    .container-table {
         background-color: $background;
-        padding: 2rem 1rem;
-        display: flex;
-        align-items: center;
+        box-shadow: rgba($Text, 0.5) 0rem .2rem 3rem -1rem, rgba($Text, 0.5) 0rem .4rem 1.5rem -1rem;
 
-        .search {
-            width: 100%;
-
-            display: inline-flex;
-
-        }
-
-        .icon {
-            position: absolute;
-            height: 2rem;
-            width: 2rem;
-            padding: .2rem;
-            height: 100%;
-            color: $Secondary ;
-            margin: 0 .5rem;
-        }
-
-        input {
-            border: 1px solid lighten($color: $Primary, $amount: 60);
-            border-radius: .5rem;
-            padding: .5rem;
-            padding-left: 2.5rem;
-            width: 100%;
-            background-color: transparent;
-            font-size: 1.1rem;
-            color: $Secondary;
-
-            &:focus {
-                outline-color: $Secondary;
-            }
-
-            &::placeholder {
-                color: darken($color: $Text, $amount: 2);
-            }
-        }
-
-        table {}
-    }
-
-    table {
-        width: 100%;
-        background-color: $background;
-        table-layout: fixed;
-        border-collapse: collapse;
-
-        .text-center {
-            text-align: center;
-        }
-
-        .center {
-            justify-content: center;
-        }
-
-        tr {
-            border-top: 2px solid $background-page;
-            border-bottom: 2px solid $background-page;
-            text-align: justify;
+        .container-search {
             height: 3rem;
+            display: block;
+            padding: 2rem 1rem;
+            display: flex;
+            align-items: center;
 
-            th {
-                font-size: 1.3rem;
-                font-weight: 400;
-                padding: 0 1rem;
+            .search {
+                width: 100%;
+
+                display: inline-flex;
+
             }
 
-            td {
-                font-size: 1rem;
-                font-weight: lighter;
-                padding: 0 1rem;
+            .icon {
+                position: absolute;
+                height: 2rem;
+                width: 2rem;
+                padding: .2rem;
+                height: 100%;
+                color: $Secondary ;
+                margin: 0 .5rem;
+            }
+
+            input {
+                border: 1px solid lighten($color: $Primary, $amount: 60);
+                border-radius: .5rem;
+                padding: .5rem;
+                padding-left: 2.5rem;
+                width: 100%;
+                background-color: transparent;
+                font-size: 1.1rem;
+                color: $Secondary;
+
+                &:focus {
+                    outline-color: $Secondary;
+                }
+
+                &::placeholder {
+                    color: darken($color: $Text, $amount: 2);
+                }
             }
         }
 
-        thead {
+        table {
+            width: 100%;
+            table-layout: fixed;
+            border-collapse: collapse;
+
+            .text-center {
+                text-align: center;
+            }
+
+            .center {
+                justify-content: center;
+            }
+
             tr {
-                color: darken($color: $Text, $amount: 15);
-            }
-        }
+                border-top: 2px solid darken($color: $background-page, $amount: 5);
+                border-bottom: 2px solid darken($color: $background-page, $amount: 5);
+                text-align: justify;
+                height: 3rem;
 
-        tbody {
-            .actions {
-                display: flex;
+                .check {
+                    width: 3rem;
 
-                button {
-                    position: relative;
-                    width: 2.3rem;
-                    height: 2.3rem;
-                    background-color: transparent;
-                    border: none;
-                    border-radius: .5rem;
-                    padding: .4rem;
-                    margin: 0 .1rem;
-                    color: $Secondary;
-
-                    .icon {}
-
-                    &:hover {
-                        background-color: lighten($color: $Primary, $amount: 75);
-                        color: $Secondary-Dark;
-                        transition: all ease-in-out 1s;
-
-                        &:after {
-                            content: '';
-                            width: 0;
-                            height: 0;
-                            border-bottom: .5rem solid $Primary-Light;
-                            border-left: .5rem solid transparent;
-                            border-right: .5rem solid transparent;
-                            bottom: -.8rem;
-                            position: absolute;
-                            transform: translateX(-1.2rem);
-                        }
-
-                        &::before {
-                            position: absolute;
-                            content: attr(data-text);
-                            background-color: $Primary-Light;
-                            color: $background;
-                            padding: .5rem 1rem;
-                            border-radius: .5rem;
-                            top: 3rem;
-                            transition: all ease-in-out 1s;
-                        }
+                    input {
+                        width: 1.2rem;
+                        height: 1.2rem;
                     }
+
+                    :checked {
+                        background-color: aquamarine;
+                    }
+                }
+
+                th {
+                    font-size: 1.3rem;
+                    font-weight: 400;
+                    padding: 0 1rem;
+                }
+
+                td {
+                    font-size: 1rem;
+                    font-weight: lighter;
+                    padding: 0 1rem;
                 }
             }
 
-            tr {
-                td {
-                    .type {
-                        width: min-content;
-                        padding: .5rem 1rem;
-                        border-radius: 1rem;
-                        color: attr(color);
-                        background-color: rgba($color: $Info, $alpha: 0.3);
-                        color: darken($color: $Info, $amount: 10);
-                        font-weight: 400;
-                        text-align: center;
-                        margin: auto auto;
+            thead {
+                background-color: rgba($color: lighten($color: $Primary, $amount: 70), $alpha: .1);
+
+                tr {
+                    color: darken($color: $Text, $amount: 15);
+                }
+            }
+
+            tbody {
+                .actions {
+                    display: flex;
+
+                    button {
+                        position: relative;
+                        width: 2.3rem;
+                        height: 2.3rem;
+                        background-color: transparent;
+                        border: none;
+                        border-radius: .5rem;
+                        padding: .4rem;
+                        margin: 0 .1rem;
+                        color: $Secondary;
+
+                        .icon {}
+
+                        &:hover {
+                            background-color: lighten($color: $Primary, $amount: 75);
+                            color: $Secondary-Dark;
+                            transition: all ease-in-out 1s;
+
+                            &:after {
+                                content: '';
+                                width: 0;
+                                height: 0;
+                                border-bottom: .5rem solid $Primary-Light;
+                                border-left: .5rem solid transparent;
+                                border-right: .5rem solid transparent;
+                                bottom: -.8rem;
+                                position: absolute;
+                                transform: translateX(-1.2rem);
+                            }
+
+                            &::before {
+                                position: absolute;
+                                content: attr(data-text);
+                                background-color: $Primary-Light;
+                                color: $background;
+                                padding: .5rem 1rem;
+                                border-radius: .5rem;
+                                top: 3rem;
+                                transition: all ease-in-out 1s;
+                            }
+                        }
+                    }
+                }
+
+                tr {
+                    td {
+                        .type {
+                            width: min-content;
+                            padding: .5rem 1rem;
+                            border-radius: 1rem;
+                            font-weight: 400;
+                            text-align: center;
+                            margin: auto auto;
+                        }
+                    }
+
+                    &:hover {
+                        background-color: rgba($color: lighten($color: $Primary, $amount: 70), $alpha: .1);
                     }
                 }
             }

@@ -2,11 +2,15 @@ import React, { useState } from 'react';
 import { Icon } from '@mdi/react';
 import { mdiViewGridOutline, mdiPlus, mdiViewListOutline, mdiMagnify, mdiDeleteOutline, mdiCardAccountDetailsOutline } from '@mdi/js';
 import { color } from '../../colors/colors';
+import { hextToRgb, LightenDarkenColor } from '../../functions/functions';
 
 export const ClientsPage = () => {
     const nameClass: string = 'container__private_content_page';
     const [view, setView] = useState<'list' | 'grid'>('list');
     const [type, setType] = useState<'all' | 'clients' | 'public'>('all');
+
+    console.log(`rgba(${color.colorQuestion.replace('#', '').match(/.{1,2}/g)?.toString()},0.3)`);
+
     return (
         <div className={nameClass}>
             <div className={nameClass}>
@@ -51,43 +55,75 @@ export const ClientsPage = () => {
                             </button>
                         </div>
                     </div>
-                    <div className='container-search'>
-                        <Icon className='icon' path={mdiMagnify} />
-                        <input
-                            placeholder='Escribe el nombre aqui'
-                            type="text"
-                        />
+                    <div className='container-table'>
+                        <div className='container-search'>
+                            <Icon className='icon' path={mdiMagnify} />
+                            <input
+                                placeholder='Escribe el nombre aqui'
+                                type="text"
+                            />
+                        </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th className='check'><input type="checkbox" /></th>
+                                    <th>Nombre</th>
+                                    <th>teléfono</th>
+                                    <th className='text-center'>Tipo</th>
+                                    <th className='text-center'>Estado</th>
+                                    <th className='text-center'>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th className='check'><input type="checkbox" /></th>
+                                    <td>Erick Andrade Ramos</td>
+                                    <td>2371071069</td>
+                                    <td><p className='type' style={{
+                                        backgroundColor: `rgba(${hextToRgb(color.colorInfo)},0.3)`,
+                                        color: `${LightenDarkenColor(color.colorInfo, -20)}`
+                                    }}>Cliente</p></td>
+                                    <td className='text-center'>activo</td>
+                                    <td className='actions center'>
+                                        <button onClick={() => { }} data-text="Ver">
+                                            <Icon className='icon' path={mdiCardAccountDetailsOutline} />
+                                        </button>
+                                        <button onClick={() => { }} data-text="Eventos">
+                                            <Icon className='icon' path={mdiDeleteOutline} />
+                                        </button>
+                                        <button onClick={() => { }} data-text="Eliminar">
+                                            <Icon className='icon' path={mdiDeleteOutline} />
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th className='check'><input type="checkbox" /></th>
+                                    <td>Yolanda Cortes Rojas</td>
+                                    <td>---------</td>
+                                    <td><p className='type' style={{
+                                        backgroundColor: `rgba(${hextToRgb(color.colorQuestion)},0.3)`,
+                                        color: `${LightenDarkenColor(color.colorQuestion, -20)}`
+                                    }}>Publico</p></td>
+                                    <td className='text-center'>activo</td>
+                                    <td className='actions center'>
+                                        <button onClick={() => { }} data-text="Ver">
+                                            <Icon className='icon' path={mdiCardAccountDetailsOutline} />
+                                        </button>
+                                        <button onClick={() => { }} data-text="Eventos">
+                                            <Icon className='icon' path={mdiDeleteOutline} />
+                                        </button>
+                                        <button onClick={() => { }} data-text="Eliminar">
+                                            <Icon className='icon' path={mdiDeleteOutline} />
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div className='pagination'>
+
+                        </div>
                     </div>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Nombre</th>
-                                <th>teléfono</th>
-                                <th className='text-center'>Tipo</th>
-                                <th className='text-center'>Estado</th>
-                                <th className='text-center'>Acciones</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Erick Andrade Ramos</td>
-                                <td>2371071069</td>
-                                <td><p className='type' style={{ ['--color' as any]: color.colorInfo }}>Cliente</p></td>
-                                <td className='text-center'>activo</td>
-                                <td className='actions center'>
-                                    <button onClick={() => { }} data-text="Ver">
-                                        <Icon className='icon' path={mdiCardAccountDetailsOutline} />
-                                    </button>
-                                    <button onClick={() => { }} data-text="Eventos">
-                                        <Icon className='icon' path={mdiDeleteOutline} />
-                                    </button>
-                                    <button onClick={() => { }} data-text="Eliminar">
-                                        <Icon className='icon' path={mdiDeleteOutline} />
-                                    </button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+
                     <div className='pagination'>
 
                     </div>
