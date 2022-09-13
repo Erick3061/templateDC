@@ -14,6 +14,15 @@ export interface I_LogIn {
     password: string;
 }
 
+export interface I_CreateClient {
+    idType: number;
+    name: string;
+    lastname: string;
+    phoneNumber: string;
+    email: string;
+    address: string;
+}
+
 /**
  * ___________________________
  */

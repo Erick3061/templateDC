@@ -354,13 +354,43 @@
         }
     }
 
-    .body {}
+    .body {
+        .Form {
+            display: flex;
+            padding: 2rem 0;
+
+            .container-img {
+                width: 45%;
+            }
+
+            .container-form {
+                width: 100%;
+
+                .container-input {
+
+                    input {
+                        padding: 1.5rem;
+                        border-radius: .5rem;
+                        background-color: aqua;
+                    }
+                }
+            }
+        }
+    }
 
     .footer {
         padding: .7rem;
         display: flex;
         justify-content: flex-end;
         border-top: 2px solid lighten($color: $Text, $amount: 30);
+    }
+
+    .marginHorizontal {
+        margin: 0rem;
+    }
+
+    .group {
+        justify-content: center;
     }
 
     .container-btn {

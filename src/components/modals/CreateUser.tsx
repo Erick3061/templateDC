@@ -2,6 +2,7 @@ import React from 'react';
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { update_USERS_create } from "../../features/modalsSlice";
 import { color } from '../../colors/colors';
+import { FormCreateClient } from '../forms/FormCreateClient';
 
 
 export const CreateUser = () => {
@@ -21,9 +22,7 @@ export const CreateUser = () => {
                         </span>
                     </div>
                     <div className='body'>
-                        <form action="">
-
-                        </form>
+                        <FormCreateClient />
                     </div>
                     <div className='footer container-btn'>
                         <button className='btn'>cancel</button>
