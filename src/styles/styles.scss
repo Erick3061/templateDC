@@ -73,6 +73,50 @@
                 transform: scale(1.02);
             }
         }
+
+        .btn {
+            margin: .5rem;
+            font-size: 1.1rem;
+            padding: 1.2rem 1.5rem;
+            border-radius: 1rem;
+            border: none;
+            cursor: pointer;
+            background-color: transparent;
+            color: $Secondary;
+            font-weight: 500;
+            transition: all ease-in-out .2s;
+
+            &:hover {
+                background-color: lighten($color: $Primary, $amount: 80);
+                color: $Secondary-Dark;
+                transition: all ease-in-out .3s
+            }
+
+        }
+
+        .del {
+            @extend .btn;
+            color: white;
+            background-color: darken($color: $Error, $amount: 5);
+
+            &:hover {
+                color: white;
+                background-color: darken($color: $Error, $amount: 15);
+            }
+        }
+
+        .confirm {
+            @extend .btn;
+            background-color: darken($color: $Secondary, $amount: 5);
+            color: white;
+
+            &:hover {
+                color: white;
+                background-color: darken($color: $Secondary, $amount: 15);
+            }
+        }
+
+
     }
 
     &__private {

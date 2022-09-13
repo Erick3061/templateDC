@@ -239,32 +239,51 @@
 
                         .icon {}
 
+                        &:before,
+                        &:after {
+                            opacity: 0;
+                            pointer-events: none;
+                        }
+
+                        &:after {
+                            z-index: 1;
+                            content: '';
+                            width: 0;
+                            height: 0;
+                            border-bottom: .5rem solid $Primary-Light;
+                            border-left: .5rem solid transparent;
+                            border-right: .5rem solid transparent;
+                            bottom: -.8rem;
+                            position: absolute;
+                            // transform: translateX(-1.2rem);
+                        }
+
+                        &::before {
+                            z-index: 1;
+                            position: absolute;
+                            content: attr(data-text);
+                            background-color: $Primary-Light;
+                            color: $background;
+                            padding: .5rem 1rem;
+                            border-radius: .5rem;
+                            top: 3rem;
+                        }
+
+                        &:after,
+                        &:before {
+                            transform: translate3d(-1.2rem, 0, 0);
+                            transition: all .3s ease-in-out;
+                        }
+
                         &:hover {
                             background-color: lighten($color: $Primary, $amount: 75);
                             color: $Secondary-Dark;
-                            transition: all ease-in-out 1s;
+                            transition: all ease-in-out .5s;
 
-                            &:after {
-                                content: '';
-                                width: 0;
-                                height: 0;
-                                border-bottom: .5rem solid $Primary-Light;
-                                border-left: .5rem solid transparent;
-                                border-right: .5rem solid transparent;
-                                bottom: -.8rem;
-                                position: absolute;
-                                transform: translateX(-1.2rem);
-                            }
-
-                            &::before {
-                                position: absolute;
-                                content: attr(data-text);
-                                background-color: $Primary-Light;
-                                color: $background;
-                                padding: .5rem 1rem;
-                                border-radius: .5rem;
-                                top: 3rem;
-                                transition: all ease-in-out 1s;
+                            &:after,
+                            &:before {
+                                opacity: 1;
+                                transform: translate3d(-1.2rem, .2rem, 0);
                             }
                         }
                     }

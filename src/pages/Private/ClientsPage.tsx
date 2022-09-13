@@ -1,15 +1,19 @@
 import React, { useState } from 'react';
 import { Icon } from '@mdi/react';
-import { mdiViewGridOutline, mdiPlus, mdiViewListOutline, mdiMagnify, mdiDeleteOutline, mdiCardAccountDetailsOutline } from '@mdi/js';
+import { mdiViewGridOutline, mdiPlus, mdiViewListOutline, mdiMagnify, mdiDeleteOutline, mdiAccountDetails } from '@mdi/js';
 import { color } from '../../colors/colors';
 import { hextToRgb, LightenDarkenColor } from '../../functions/functions';
+import { Delete } from '../../components/modals/Delete';
+import { useAppDispatch } from '../../app/hooks';
+import { update_USERS_delete, update_USERS_create } from '../../features/modalsSlice';
+import { CreateUser } from '../../components/modals/CreateUser';
 
 export const ClientsPage = () => {
     const nameClass: string = 'container__private_content_page';
     const [view, setView] = useState<'list' | 'grid'>('list');
     const [type, setType] = useState<'all' | 'clients' | 'public'>('all');
 
-    console.log(`rgba(${color.colorQuestion.replace('#', '').match(/.{1,2}/g)?.toString()},0.3)`);
+    const dispatch = useAppDispatch();
 
     return (
         <div className={nameClass}>
@@ -19,7 +23,7 @@ export const ClientsPage = () => {
                         <p id='title'>Clientes</p>
                         <p id='subtitle'>Administra tus clientes</p>
                     </div>
-                    <button>
+                    <button onClick={() => dispatch(update_USERS_create(true))}>
                         <Icon className='icon' path={mdiPlus} />
                         <p>Crear Cliente</p>
                     </button>
@@ -85,13 +89,10 @@ export const ClientsPage = () => {
                                     }}>Cliente</p></td>
                                     <td className='text-center'>activo</td>
                                     <td className='actions center'>
-                                        <button onClick={() => { }} data-text="Ver">
-                                            <Icon className='icon' path={mdiCardAccountDetailsOutline} />
+                                        <button onClick={() => { }} data-text="Detalles">
+                                            <Icon className='icon' path={mdiAccountDetails} />
                                         </button>
-                                        <button onClick={() => { }} data-text="Eventos">
-                                            <Icon className='icon' path={mdiDeleteOutline} />
-                                        </button>
-                                        <button onClick={() => { }} data-text="Eliminar">
+                                        <button onClick={() => dispatch(update_USERS_delete(true))} data-text="Eliminar">
                                             <Icon className='icon' path={mdiDeleteOutline} />
                                         </button>
                                     </td>
@@ -106,11 +107,8 @@ export const ClientsPage = () => {
                                     }}>Publico</p></td>
                                     <td className='text-center'>activo</td>
                                     <td className='actions center'>
-                                        <button onClick={() => { }} data-text="Ver">
-                                            <Icon className='icon' path={mdiCardAccountDetailsOutline} />
-                                        </button>
-                                        <button onClick={() => { }} data-text="Eventos">
-                                            <Icon className='icon' path={mdiDeleteOutline} />
+                                        <button onClick={() => { }} data-text="Detalles">
+                                            <Icon className='icon' path={mdiAccountDetails} />
                                         </button>
                                         <button onClick={() => { }} data-text="Eliminar">
                                             <Icon className='icon' path={mdiDeleteOutline} />
@@ -119,9 +117,6 @@ export const ClientsPage = () => {
                                 </tr>
                             </tbody>
                         </table>
-                        <div className='pagination'>
-
-                        </div>
                     </div>
 
                     <div className='pagination'>
@@ -129,6 +124,8 @@ export const ClientsPage = () => {
                     </div>
                 </article>
                 <footer className='footer'></footer>
+                <Delete />
+                <CreateUser />
             </div>
         </div>
     )

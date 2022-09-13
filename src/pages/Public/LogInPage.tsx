@@ -4,21 +4,15 @@ import { Input } from '../../components/Input';
 import { Switch } from '../../components/Switch';
 import logo from '../../assets/logo.png';
 import cover from '../../assets/cover.png';
-
-interface I_LogIn {
-  access: string;
-  password: string;
-}
+import { I_LogIn } from '../../interfaces/interfaces';
 
 export const LogInPage = () => {
   const [sw1, setSw1] = useState<boolean>(false);
   const { register, formState: { errors }, handleSubmit, getValues } = useForm<I_LogIn>();
 
-
   const onSubmit: SubmitHandler<I_LogIn> = data => {
     console.log(data);
   }
-
 
   const nameClass: string = 'container__LogIn';
   return (
