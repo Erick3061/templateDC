@@ -322,11 +322,13 @@
 .container_modal-create {
     position: absolute;
     width: 60rem;
+    height: 40rem;
     background-color: $background;
     border-radius: 1rem;
     opacity: 0;
     transition: opacity cubic-bezier(0.86, 0, 0.07, 1) 255ms;
     box-shadow: rgba($Primary-Dark, 0.5) 0rem .3rem 5rem -1rem, rgba($Primary-Dark, 0.5) 0rem .4rem 1.5rem -1rem;
+    overflow: auto;
 
     &-show {
         opacity: 1;
@@ -355,34 +357,179 @@
     }
 
     .body {
-        .Form {
+        background-color: $background;
+        width: 100%;
+        height: calc(100% - (11rem));
+
+        .container-form {
+            width: 100%;
+            height: 100%;
             display: flex;
-            padding: 2rem 0;
+            justify-content: center;
+            align-items: center;
 
-            .container-img {
-                width: 45%;
-            }
-
-            .container-form {
+            .top {
                 width: 100%;
+                display: flex;
+
+                .container-img {
+                    width: 40%;
+                    display: flex;
+                    justify-content: center;
+                    flex-direction: column;
+                    padding: 0 2rem;
+
+                    .borde {
+                        border-bottom: 1px solid lighten($color: $Text, $amount: 30);
+                    }
+
+                    span {
+                        border: 1px solid red;
+                        height: 100%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+
+
+                    .content {
+                        position: relative;
+
+                        .image {
+                            background-color: lighten($color: $Primary, $amount: 50);
+                            width: 8rem;
+                            height: 8rem;
+                            border-radius: 1rem;
+                        }
+
+
+                        .icon {
+                            position: absolute;
+                            bottom: -1rem;
+                            right: -1rem;
+                            height: 3rem;
+                            padding: .5rem;
+                            border-radius: 50%;
+                            background-color: $Secondary;
+                            color: $background;
+                            box-shadow: rgba($Primary, 0.5) 0rem .2rem 3rem -.6rem, rgba($Secondary-Dark, 0.5) 0rem .4rem 1.5rem -.4rem;
+                        }
+                    }
+
+                }
 
                 .container-input {
-
                     input {
                         padding: 1.5rem;
                         border-radius: .5rem;
-                        background-color: aqua;
+                        color: $Secondary-Dark;
+                    }
+                }
+
+                .container-select {
+                    position: relative;
+
+                    input {
+                        border-radius: .5rem;
+                        padding-right: 3rem;
+                        color: $Secondary;
+                    }
+
+                    ul {
+                        display: flex;
+                        flex-direction: column;
+                        position: absolute;
+                        background-color: $background;
+                        border-radius: .8rem;
+                        box-shadow: rgba($Text, 0.5) 0rem .2rem 3rem -1rem, rgba($Text, 0.5) 0rem .4rem 1.5rem -1rem;
+                        list-style: none;
+                        width: 100%;
+                        padding: .5rem 0;
+                        overflow: auto;
+                        visibility: hidden;
+                        opacity: 0;
+                        bottom: 4.6rem;
+
+                        li {
+                            padding: .5rem 1rem;
+                            height: 2rem;
+                            cursor: pointer;
+                            font-weight: 400;
+                            color: darken($color: $Text, $amount: 15);
+
+                            &:hover {
+                                background-color: lighten($color: $Primary, $amount: 80);
+                            }
+                        }
+
+                        &.show {
+                            visibility: visible;
+                            opacity: 1;
+                            transition: all cubic-bezier(0.785, 0.135, 0.15, 0.86) .225ms;
+                        }
+                    }
+
+                    .icon {
+                        top: .8rem;
+                        right: .3rem;
+                        position: absolute;
+                        height: 1.7rem;
+                        border-radius: .5rem;
+                        cursor: pointer;
+                        color: $Secondary-Light;
+
+                        &:hover {
+                            transition: all cubic-bezier(0.785, 0.135, 0.15, 0.86) 225ms;
+                            background-color: lighten($color: $Primary, $amount: 70);
+                        }
+
+                    }
+
+                    .icon-delete {
+                        @extend .icon;
+                        background-color: rgba($color: $Error, $alpha: .3);
+                        color: darken($color: $Error, $amount: 18);
+                        padding: .2rem;
+                        right: 2rem;
+
+                        &:hover {
+                            background-color: lighten($color: $Error, $amount: 0);
+                            color: $background;
+                        }
                     }
                 }
             }
+
+            .bottom {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                padding: .7rem;
+                display: flex;
+                justify-content: flex-end;
+                border-top: 2px solid lighten($color: $Text, $amount: 30);
+                height: 5rem;
+                width: 100%;
+
+                .container-btn {
+
+                    .btn {
+                        padding: .5rem .9rem;
+                        border-radius: .7rem;
+                    }
+                }
+            }
+
         }
     }
+
 
     .footer {
         padding: .7rem;
         display: flex;
         justify-content: flex-end;
         border-top: 2px solid lighten($color: $Text, $amount: 30);
+        height: 5rem;
     }
 
     .marginHorizontal {
