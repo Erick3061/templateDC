@@ -2,10 +2,9 @@ import React from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { I_CreateClient } from '../../interfaces/interfaces';
 import { Input } from '../Input';
-import { color } from '../../colors/colors';
 import { Icon } from '@mdi/react';
 import { mdiAccountTie, mdiCloudUpload } from '@mdi/js';
-import { Select } from '../Select';
+import { Select, SelectInput } from '../Select';
 import { useAppDispatch } from '../../app/hooks';
 import { update_USERS_create } from '../../features/modalsSlice';
 
@@ -32,7 +31,8 @@ export const FormCreateClient = () => {
 
                     <div className='group'>
                         <Input placeholder='Tipo de cliente' register={register} type='text' kys='idType' errors={errors} />
-                        <Select />
+                        {/* <Select /> */}
+                        <SelectInput placeholder='Selecciona' register={register} type='search' kys='idType' errors={errors} />
                     </div>
                 </span>
                 <div className='container-img'>
@@ -42,7 +42,9 @@ export const FormCreateClient = () => {
                             <Icon className='icon' path={mdiCloudUpload} />
                         </div>
                     </span>
-                    <span></span>
+                    <span>
+                        algo
+                    </span>
                 </div>
             </div>
             <div className='bottom container-btn'>

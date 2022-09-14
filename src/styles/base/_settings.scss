@@ -16,7 +16,7 @@ html {
     font-size: 100%;
 
     @media only screen and (max-width: 1280px) {
-        color: magenta;
+        // color: magenta;
         font-size: 90%;
 
         .container {
@@ -47,6 +47,61 @@ html {
                         }
                     }
                 }
+            }
+        }
+
+        .container_modal-create {
+            overflow: auto;
+            width: 50rem;
+
+            .head {
+                display: block;
+                height: auto;
+            }
+
+            .body {
+                display: block;
+                height: auto;
+                // overflow: auto;
+
+                .container-form {
+                    flex-direction: column;
+
+                    .top {
+                        width: 100%;
+                        display: block;
+
+                        .container-img {
+                            width: 100%;
+                            height: auto;
+
+                            span {
+                                width: 100%;
+                                padding: 1.5rem 0;
+                            }
+                        }
+
+                        .container-select {
+                            z-index: 1;
+
+                            ul {
+                                bottom: auto;
+                                top: 3.1rem;
+
+                                li {}
+                            }
+                        }
+                    }
+
+                    .bottom {
+                        position: relative;
+                    }
+                }
+            }
+
+            .footer {
+                display: block;
+                height: auto;
             }
         }
     }
