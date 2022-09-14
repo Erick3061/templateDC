@@ -51,11 +51,13 @@
     padding: 0 2rem;
     padding-bottom: 1rem;
     background-color: $background-page;
+    width: 100%;
 
     .filter {
         position: relative;
         display: flex;
         padding: 1.3rem 0;
+        width: 100%;
 
         .type {
             height: 100%;
@@ -124,19 +126,20 @@
     .container-table {
         background-color: $background;
         box-shadow: rgba($Text, 0.5) 0rem .2rem 3rem -1rem, rgba($Text, 0.5) 0rem .4rem 1.5rem -1rem;
+        border-radius: 1rem;
+        width: 100%;
 
         .container-search {
+            position: relative;
             height: 3rem;
             display: block;
             padding: 2rem 1rem;
             display: flex;
             align-items: center;
+            width: 100%;
 
             .search {
-                width: 100%;
-
                 display: inline-flex;
-
             }
 
             .icon {
@@ -169,146 +172,263 @@
             }
         }
 
-        table {
+        .data {
             width: 100%;
-            table-layout: fixed;
-            border-collapse: collapse;
+            overflow-x: auto;
 
-            .text-center {
-                text-align: center;
-            }
+            table {
+                border-collapse: collapse;
+                width: 100%;
 
-            .center {
-                justify-content: center;
-            }
-
-            tr {
-                border-top: 2px solid darken($color: $background-page, $amount: 5);
-                border-bottom: 2px solid darken($color: $background-page, $amount: 5);
-                text-align: justify;
-                height: 3rem;
-
-                .check {
-                    width: 3rem;
-
-                    input {
-                        width: 1.2rem;
-                        height: 1.2rem;
-                    }
-
-                    :checked {
-                        background-color: aquamarine;
-                    }
+                .text-center {
+                    text-align: center;
                 }
 
-                th {
-                    font-size: 1.3rem;
-                    font-weight: 400;
-                    padding: 0 1rem;
+                &.center {
+                    justify-content: center;
                 }
-
-                td {
-                    font-size: 1rem;
-                    font-weight: lighter;
-                    padding: 0 1rem;
-                }
-            }
-
-            thead {
-                background-color: rgba($color: lighten($color: $Primary, $amount: 70), $alpha: .1);
 
                 tr {
-                    color: darken($color: $Text, $amount: 15);
+                    border-top: 2px solid darken($color: $background-page, $amount: 5);
+                    border-bottom: 2px solid darken($color: $background-page, $amount: 5);
+                    height: 3rem;
+
+                    .check {
+                        width: 3rem;
+
+                        input {
+                            width: 1.2rem;
+                            height: 1.2rem;
+                        }
+
+                        :checked {
+                            background-color: aquamarine;
+                        }
+                    }
+
+                    th {
+                        font-size: 1.3rem;
+                        font-weight: 400;
+                        padding: 0 1rem;
+                    }
+
+                    td {
+                        white-space: nowrap;
+                        font-weight: 300;
+                        padding: 0 1rem;
+                        color: $Primary;
+                        font-size: .8rem;
+                    }
                 }
-            }
 
-            tbody {
-                .actions {
-                    display: flex;
+                thead {
+                    background-color: rgba($color: lighten($color: $Primary, $amount: 70), $alpha: .1);
 
-                    button {
-                        position: relative;
-                        width: 2.3rem;
-                        height: 2.3rem;
-                        background-color: transparent;
-                        border: none;
-                        border-radius: .5rem;
-                        padding: .4rem;
-                        margin: 0 .1rem;
-                        color: $Secondary;
+                    tr {
+                        color: darken($color: $Text, $amount: 15);
+                    }
+                }
 
-                        .icon {}
+                tbody {
 
-                        &:before,
-                        &:after {
-                            opacity: 0;
-                            pointer-events: none;
-                        }
+                    tr {
+                        td {
+                            .type {
+                                height: 100%;
+                                padding: .3rem .7rem;
+                                border-radius: .5rem;
+                                font-weight: 400;
+                                text-align: center;
+                            }
 
-                        &:after {
-                            z-index: 1;
-                            content: '';
-                            width: 0;
-                            height: 0;
-                            border-bottom: .5rem solid $Primary-Light;
-                            border-left: .5rem solid transparent;
-                            border-right: .5rem solid transparent;
-                            bottom: -.8rem;
-                            position: absolute;
-                            // transform: translateX(-1.2rem);
-                        }
+                            &.actions {
+                                height: 100%;
+                                text-align: center;
 
-                        &::before {
-                            z-index: 1;
-                            position: absolute;
-                            content: attr(data-text);
-                            background-color: $Primary-Light;
-                            color: $background;
-                            padding: .5rem 1rem;
-                            border-radius: .5rem;
-                            top: 3rem;
-                        }
+                                button {
+                                    background-color: transparent;
+                                    height: 2rem;
+                                    width: 2rem;
+                                    margin: 0 .2rem;
+                                    border: none;
+                                    padding: .3rem;
+                                    border-radius: .5rem;
+                                    cursor: pointer;
 
-                        &:after,
-                        &:before {
-                            transform: translate3d(-1.2rem, 0, 0);
-                            transition: all .3s ease-in-out;
+                                    svg {
+                                        color: $Secondary;
+                                        height: 100%;
+                                    }
+
+                                    &:hover {
+                                        background-color: lighten($color: $Primary, $amount: 80);
+
+                                        svg {
+                                            color: $Secondary-Dark;
+                                        }
+                                    }
+                                }
+                            }
                         }
 
                         &:hover {
-                            background-color: lighten($color: $Primary, $amount: 75);
-                            color: $Secondary-Dark;
-                            transition: all ease-in-out .5s;
+                            background-color: rgba($color: lighten($color: $Primary, $amount: 70), $alpha: .1);
+                        }
+                    }
+                }
+            }
+        }
 
-                            &:after,
-                            &:before {
-                                opacity: 1;
-                                transform: translate3d(-1.2rem, .2rem, 0);
+        .container-pagination {
+            height: 5rem;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+
+            .container__private_portal {
+                background-color: transparent;
+                backdrop-filter: blur(2px);
+                z-index: 2;
+                width: 100%;
+                height: 0%;
+                opacity: 0;
+                transition: all cubic-bezier(0.785, 0.135, 0.15, 0.86) 225ms;
+
+                &-show {
+                    height: 100%;
+                    opacity: 1;
+                    transition: opacity cubic-bezier(0.785, 0.135, 0.15, 0.86) 225ms;
+                }
+            }
+
+            span {
+                display: flex;
+                padding: .5rem 1rem;
+                align-items: center;
+                color: $Primary;
+
+                .container-pages {
+                    position: relative;
+
+                    .container-btns {
+                        display: inline-flex;
+                        align-items: center;
+                        background-color: transparent;
+                        border: none;
+                        height: 1.5rem;
+                        cursor: pointer;
+                        border-radius: .5rem;
+
+                        input {
+                            background-color: transparent;
+                            width: 2.2rem;
+                            height: 100%;
+                            border: none;
+                            font-size: 1.2rem;
+                            text-align: center;
+                            cursor: pointer;
+                            color: $Secondary;
+                        }
+
+                        svg {
+                            height: 100%;
+
+                            &.rotate {
+                                transform: rotateX(90deg);
+                            }
+                        }
+
+                        &:hover {
+                            background-color: lighten($color: $Primary, $amount: 80);
+                        }
+                    }
+
+                    ul {
+                        position: absolute;
+                        background-color: $background;
+                        border-radius: 1rem;
+                        box-shadow: rgba($Primary, 0.5) 0rem .2rem 3rem -1rem, rgba($Primary, 0.5) 0rem .4rem 1.5rem -1rem;
+                        list-style: none;
+                        bottom: 2.1rem;
+                        right: 0rem;
+                        padding: 1rem;
+                        z-index: 2;
+                        visibility: hidden;
+                        opacity: 0;
+
+                        &.show {
+                            visibility: visible;
+                            opacity: 1;
+                            transition: all cubic-bezier(0.785, 0.135, 0.15, 0.86) 225ms;
+                        }
+
+                        li {
+                            text-align: center;
+                            font-size: 1.2rem;
+                            padding: .5rem 1rem;
+                            border-radius: .5rem;
+                            cursor: pointer;
+
+                            &:hover {
+                                background-color: lighten($color: $Primary, $amount: 80);
                             }
                         }
                     }
                 }
 
-                tr {
-                    td {
-                        .type {
-                            width: min-content;
-                            padding: .5rem 1rem;
-                            border-radius: 1rem;
-                            font-weight: 400;
-                            text-align: center;
-                            margin: auto auto;
-                        }
+            }
+
+            .container-arrow {
+                svg {
+                    margin: .2rem;
+                    // background-color: brown;
+                    height: 2.2rem;
+                    border-radius: .3rem;
+                    padding: .2rem;
+                    color: $Text;
+                    cursor: pointer;
+
+                    &.active {
+                        color: $Secondary-Dark;
                     }
 
                     &:hover {
-                        background-color: rgba($color: lighten($color: $Primary, $amount: 70), $alpha: .1);
+                        background-color: lighten($color: $Primary, $amount: 80);
                     }
                 }
             }
+
         }
     }
 
+
 }
 
-.footer {}
+.footer {
+    display: flex;
+    height: 6rem;
+    display: flex;
+    align-items: center;
+    padding: 0 2rem;
+    box-shadow: rgba($Text, 0.5) 0rem 0rem 2rem -2rem, rgba($Text, 0.5) 0rem .4rem 1.5rem -1rem;
+
+    p {
+        width: 100%;
+        border: 1pxsolid red;
+        color: $Text;
+
+        &.left {
+            text-align: start;
+        }
+
+        &.right {
+            text-align: end;
+
+            b {
+                color: $Secondary-Dark;
+                font-weight: 400;
+            }
+        }
+    }
+}

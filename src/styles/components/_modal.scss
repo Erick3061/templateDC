@@ -1,5 +1,3 @@
-#genearl-modal {}
-
 .modalOne {
     right: 0;
     top: 0;
@@ -450,13 +448,6 @@
                         opacity: 0;
                         bottom: 4.6rem;
                         border: 1px solid lighten($color: $Primary, $amount: 75);
-
-                        p {
-                            text-align: center;
-                            font-weight: lighter;
-                            background-color: rgba($color: lighten($color: $Primary, $amount: 75), $alpha: .4);
-                            border: 1px solid lighten($color: $Primary, $amount: 75);
-                        }
 
                         li {
                             padding: .5rem 1rem;
