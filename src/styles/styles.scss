@@ -173,19 +173,17 @@
         &_content {
             width: calc(100% - 18rem); //reducimos el tamaño del sidenav
             height: 100%;
-            border: 3px solid red;
 
             &_topnav {
                 width: 100%;
                 height: 4.5rem; //largo del topnav
-                background-color: rgba($background-page, 0.95);
             }
 
             &_page {
                 width: 100%;
                 height: calc(100% - 4.5rem);
                 background-color: $background;
-                overflow: scroll;
+                overflow-x: auto;
             }
         }
 

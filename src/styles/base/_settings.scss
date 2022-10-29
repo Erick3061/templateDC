@@ -1,3 +1,6 @@
+@import './variables';
+
+
 * {
     margin: 0px;
     padding: 0px;
@@ -5,10 +8,27 @@
     font-family: Roboto, Helvetica, Arial, sans-serif;
 
     /* width */
-    // &::-webkit-scrollbar {
-    //     width: 8px;
-    //     display: none;
-    // }
+    &::-webkit-scrollbar {
+        width: 8px;
+        // display: none;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 5px $Text2;
+        border-radius: 10px;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: lighten($color: $Text, $amount: 10);
+        border-radius: 10px;
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: lighten($color: $Text, $amount: 5);
+    }
 }
 
 html {

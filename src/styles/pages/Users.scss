@@ -1,37 +1,39 @@
 .head {
     width: 100%;
-    height: 5rem;
+    // height: 5rem;
     position: relative;
     display: flex;
     align-items: center;
-    box-shadow: rgba($Text, 0.5) 0rem 0rem 2rem -2rem, rgba($Text, 0.5) 0rem .4rem 1.5rem -1rem;
+    box-shadow: rgba($Text, 0.2) 0px 2px 8px -3px, rgba(34, 51, 84, 0.1) 0px 5px 22px -4px;
+    padding: 1.5rem 0;
 
     div {
-        padding: 0 3rem;
+        // border: 1px solid red;
+        padding: 0 2rem;
 
         #title {
             font-weight: 500;
-            font-size: 2rem;
+            font-size: 1.8rem;
             color: $Secondary;
+            margin: .2rem 0;
         }
 
         #subtitle {
             color: darken($color: $Text, $amount: 7);
-            font-size: 1.3rem;
-            font-weight: lighter;
+            font-size: 1rem;
         }
     }
 
     button {
-        right: 3rem;
-        height: 3rem;
+        right: 2rem;
+        height: 2.5rem;
         display: inline-flex;
         align-items: center;
-        border-radius: 1rem;
+        border-radius: .7rem;
         border: none;
         color: $background;
         background-color: $Secondary;
-        font-size: 1.1rem;
+        font-size: 1rem;
         position: absolute;
         cursor: pointer;
         padding-right: 1rem;
@@ -67,19 +69,20 @@
             align-items: center;
 
             button {
-                padding: .5rem .8rem;
-                font-size: 1.4rem;
+                padding: .5rem 1.5rem;
+                font-size: 1rem;
+                font-weight: 500;
                 border-radius: .5rem;
                 border: none;
                 background-color: transparent;
-                color: darken($color: $Text, $amount: 10);
+                color: darken($color: $Text, $amount: 20);
                 cursor: pointer;
                 margin: 0 .2rem;
 
                 &.active {
                     background-color: $Secondary;
                     color: $background;
-                    box-shadow: 0rem 0rem .7rem .3rem rgba($Secondary, 0.3);
+                    box-shadow: 0rem 0rem 1rem .2rem rgba($Secondary, 0.3);
                 }
             }
         }
@@ -123,7 +126,7 @@
         }
     }
 
-    .container-table {
+    .container-data {
         background-color: $background;
         box-shadow: rgba($Text, 0.5) 0rem .2rem 3rem -1rem, rgba($Text, 0.5) 0rem .4rem 1.5rem -1rem;
         border-radius: 1rem;
@@ -159,7 +162,7 @@
                 padding-left: 2.5rem;
                 width: 100%;
                 background-color: transparent;
-                font-size: 1.1rem;
+                font-size: 1rem;
                 color: $Secondary;
 
                 &:focus {
@@ -207,9 +210,10 @@
                     }
 
                     th {
-                        font-size: 1.3rem;
+                        font-size: 1rem;
                         font-weight: 400;
                         padding: 0 1rem;
+                        text-transform: uppercase;
                     }
 
                     td {
@@ -217,7 +221,7 @@
                         font-weight: 300;
                         padding: 0 1rem;
                         color: $Primary;
-                        font-size: .8rem;
+                        font-size: 1rem;
                     }
                 }
 
@@ -275,6 +279,135 @@
                             background-color: rgba($color: lighten($color: $Primary, $amount: 70), $alpha: .1);
                         }
                     }
+                }
+            }
+
+            .container-grid {
+                width: 100%;
+                display: grid;
+                grid-template-columns: auto auto auto;
+
+                .container-card {
+                    padding: 1rem .5rem;
+                    width: 100%;
+
+                    .card {
+                        background-color: $background;
+                        border: .2rem solid $background;
+                        box-shadow: rgba($color: $Text, $alpha: .2) 0px 9px 16px, rgba($color: $Text, $alpha: .1) 0px 2px 2px;
+                        border: .2rem solid transparent;
+                        border-radius: 1rem;
+                        // padding: 1rem;
+
+                        .top {
+                            padding: 1rem;
+                            display: flex;
+                            justify-content: space-between;
+
+                            p {
+                                height: max-content;
+                                padding: .4rem .6rem;
+                                border-radius: .7rem;
+                                font-size: .8rem;
+                                font-weight: 400;
+                                color: darken($color: $Error, $amount: 10);
+                                background-color: rgba($color: $Error, $alpha: .2);
+                            }
+
+                            svg {
+                                height: 2rem;
+                                border-radius: .5rem;
+                                padding: .2rem;
+                                cursor: pointer;
+                                color: $Secondary;
+
+                                &:hover {
+                                    background-color: lighten($color: $Primary, $amount: 80);
+                                    color: $Secondary-Dark;
+                                }
+                            }
+                        }
+
+                        .center {
+                            div {
+                                display: flex;
+                                align-items: center;
+
+                                img {
+                                    color: $Secondary;
+                                    border: 1px solid $Primary;
+                                    border-radius: 50%;
+                                    height: 4rem;
+                                    width: 4rem;
+                                    object-fit: cover;
+                                }
+
+                                span {
+                                    width: calc(100% - 4rem);
+                                    padding: 0 1rem;
+
+                                    p {
+                                        &#name {
+                                            color: $Secondary-Dark;
+                                        }
+
+                                        &#email {
+                                            color: $Primary-Light;
+                                        }
+
+                                        &#phoneNumber {
+                                            color: darken($color: $Text, $amount: 20);
+                                        }
+
+                                        padding: .2rem 0;
+
+                                        &:last-child {
+                                            padding-top: .4rem;
+                                        }
+                                    }
+                                }
+                            }
+
+                            padding: 1rem;
+                        }
+
+                        .bottom {
+                            display: flex;
+                            justify-content: space-between;
+                            padding: .5rem 1rem;
+                            border-top: 1px solid lighten($color: $Primary, $amount: 80);
+
+                            p {
+                                color: $Primary-Light;
+                                align-self: center;
+
+                                span {
+                                    font-weight: 500;
+                                    color: $Secondary;
+                                }
+                            }
+
+                            svg {
+                                height: 2.2rem;
+                                color: $Primary-Light;
+                                padding: .4rem;
+                                border-radius: 50%;
+
+                                &:hover {
+                                    background-color: lighten($color: $Primary, $amount: 80);
+                                }
+
+                                &.select {
+                                    color: $Secondary;
+                                }
+                            }
+                        }
+
+                        &.select {
+                            border: .2rem solid $Secondary;
+                        }
+                    }
+
                 }
             }
         }
@@ -400,12 +533,30 @@
             }
 
         }
+
+        &-grid {
+            @extend .container-data;
+            background-color: transparent;
+            box-shadow: none;
+
+            .container-search {
+                background-color: $background;
+                border-radius: 1rem;
+                box-shadow: rgba($color: $Text, $alpha: .2) 0px 9px 16px, rgba($color: $Text, $alpha: .1) 0px 2px 2px;
+            }
+
+            .container-pagination {
+                background-color: $background;
+                border-radius: 1rem;
+                margin-top: 1.5rem;
+                box-shadow: rgba($color: $Text, $alpha: .2) 0px 9px 16px, rgba($color: $Text, $alpha: .1) 0px 2px 2px;
+            }
+        }
     }
-
-
 }
 
 .footer {
+    width: 100%;
     display: flex;
     height: 6rem;
     display: flex;

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Icon } from '@mdi/react';
-import { mdiViewGridOutline, mdiPlus, mdiViewListOutline, mdiMagnify, mdiDeleteOutline, mdiAccountDetails, mdiChevronLeft, mdiChevronRight, mdiMenuDown } from '@mdi/js';
+import { mdiViewGridOutline, mdiViewListOutline, mdiMagnify, mdiDeleteOutline, mdiAccountDetails, mdiChevronLeft, mdiChevronRight, mdiMenuDown, mdiDotsVertical, mdiCheckboxBlankOutline, mdiCheckboxMarked } from '@mdi/js';
 import { color } from '../../colors/colors';
 import { hextToRgb, LightenDarkenColor } from '../../functions/functions';
 import { Delete } from '../../components/modals/Delete';
@@ -9,6 +9,7 @@ import { update_USERS_delete, update_USERS_create } from '../../features/modalsS
 import { CreateUser } from '../../components/modals/CreateUser';
 import { Footer } from '../../components/Footer';
 import { Header } from '../../components/Header';
+import Profile from '../../assets/profile.jpg';
 
 export const ClientsPage = () => {
     const nameClass: string = 'container__private_content_page';
@@ -72,7 +73,7 @@ export const ClientsPage = () => {
                         </button>
                     </div>
                 </div>
-                <div className='container-table'>
+                <div className={`container-data${view === 'grid' ? '-grid' : ''}`}>
                     <div className='container-search'>
                         <Icon className='icon' path={mdiMagnify} />
                         <input
@@ -91,7 +92,6 @@ export const ClientsPage = () => {
                                             <th>Nombre</th>
                                             <th>Teléfono</th>
                                             <th>Correo</th>
-                                            {/* <th>Dirección</th> */}
                                             <th className='text-center'>Tipo</th>
                                             <th className='text-center'>Estado</th>
                                             <th className='text-center'>Acciones</th>
@@ -105,7 +105,6 @@ export const ClientsPage = () => {
                                                     <td>{C.name} {C.lastname}</td>
                                                     <td className='text-center'>{C.phoneNumber}</td>
                                                     <td>{C.email}</td>
-                                                    {/* <td className='text-center'>{C.address}</td> */}
                                                     <td>
                                                         <p className='type' style={{ backgroundColor: `rgba(${hextToRgb(C.type === 1 ? color.colorInfo : color.colorQuestion)},0.3)`, color: `${LightenDarkenColor(C.type === 1 ? color.colorInfo : color.colorQuestion, -20)}` }}>
                                                             {C.type === 1 ? 'Cliente' : 'Público'}
@@ -126,8 +125,35 @@ export const ClientsPage = () => {
                                     </tbody>
                                 </table>
                                 :
-                                <>
-                                </>
+                                <span className='container-grid'>
+                                    {
+                                        ['', '', '', '', '', '', '', '', '', '', '', '', '', '', ',', '',].map(el =>
+                                            <div className='container-card'>
+                                                <div className='card select'>
+                                                    <div className='top'>
+                                                        <p>Administrador</p>
+                                                        <Icon path={mdiDotsVertical} />
+                                                    </div>
+                                                    <div className='center'>
+                                                        <div>
+                                                            <img src={Profile} alt="Img" />
+                                                            <span>
+                                                                <p id='name'>Erick Andrade Ramos</p>
+                                                                <p id='phoneNumber'>2371071069</p>
+                                                                <p id='email'>grillo.erick1@gmail.com</p>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div className='bottom'>
+                                                        <p> <span>{25}</span> Pedidos</p>
+                                                        <Icon className='select' path={mdiCheckboxBlankOutline} />
+                                                        <Icon className='select' path={mdiCheckboxMarked} />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        )
+                                    }
+                                </span>
                         }
 
                     </div>
